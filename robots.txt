@@ -1,0 +1,42 @@
+# Kevs IT Solutions — robots.txt
+# https://kevsit.co.uk
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Disallow: /design-system
+
+# Allow AI search bots (Perplexity, SearchGPT, etc.)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block AI training crawlers (opt out of training, allow search)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap
+Sitemap: https://kevsit.co.uk/sitemap-index.xml

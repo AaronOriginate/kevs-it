@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <!-- K Monogram - circuit node style -->
+  <g>
+    <rect x="4" y="4" width="4" height="40" rx="1" fill="#00B2FF"/>
+    <line x1="8" y1="24" x2="32" y2="4" stroke="#00B2FF" stroke-width="4" stroke-linecap="round"/>
+    <line x1="8" y1="24" x2="32" y2="44" stroke="#00B2FF" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="6" cy="4" r="3.5" fill="#00B2FF"/>
+    <circle cx="6" cy="44" r="3.5" fill="#00B2FF"/>
+    <circle cx="32" cy="4" r="3.5" fill="#00B2FF"/>
+    <circle cx="32" cy="44" r="3.5" fill="#00B2FF"/>
+    <circle cx="8" cy="24" r="3.5" fill="#FFFFFF"/>
+    <line x1="6" y1="4" x2="6" y2="10" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="6" y1="38" x2="6" y2="44" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="32" y1="4" x2="32" y2="10" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="32" y1="38" x2="32" y2="44" stroke="#FFFFFF" stroke-width="1.5"/>
+  </g>
+  <!-- KEV'S IT text - techy monospace font -->
+  <text x="44" y="35" font-family="'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', Consolas, monospace" font-size="28" font-weight="700" letter-spacing="0.04em">
+    <tspan fill="#FFFFFF">KEV'S</tspan><tspan fill="#00B2FF" dx="6">IT</tspan>
+  </text>
+</svg>

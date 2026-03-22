@@ -1,0 +1,38 @@
+# Kevs IT Solutions
+
+> Award-winning IT solutions for UK businesses. Bristol-based, serving clients nationwide.
+
+## About
+
+Kevs IT Solutions is a UK-based IT services provider founded in 2012 by Kevin Rice. We deliver managed IT support, cybersecurity, cloud infrastructure, hardware procurement, telecoms, and professional training to businesses across the UK. We hold multiple industry awards including Bristol Winner 2028, Global 24 Winner, and UK Enterprise Awards 2021.
+
+## Services
+
+- **Managed IT Support** — 24/7 monitoring, proactive maintenance, dedicated helpdesk with guaranteed SLAs
+- **TechShield Pro (Cybersecurity)** — Cyber Essentials certification, threat monitoring, vulnerability scanning, staff awareness training
+- **Cloud Services (IaaS & Virtual PCs)** — Virtual desktops, managed hosting, migration, disaster recovery, 99.9% uptime SLA
+- **Hardware Procurement** — Business-grade laptops, desktops, servers, networking equipment — sourced, configured, deployed
+- **Telecoms & Broadband** — VoIP phone systems, business broadband, unified communications, mobile device management
+- **Cipher Academy (IT Training)** — CyberFirst-supported programmes, cybersecurity workshops, advanced certifications
+
+## Contact
+
+- Website: https://kevsit.co.uk
+- Email: hello@kevsit.co.uk
+- Phone: 0191 123 4567
+- Location: Bristol, UK
+- Contact page: https://kevsit.co.uk/contact
+
+## Pages
+
+- Homepage: https://kevsit.co.uk/
+- Services: https://kevsit.co.uk/services
+- About: https://kevsit.co.uk/about
+- Contact: https://kevsit.co.uk/contact
+
+## Credentials
+
+- Cyber Essentials Certified
+- CyberFirst Supported (NCSC)
+- 14+ years in business
+- Award-winning: Bristol Winner 2028, Global 24 Winner, UK Enterprise Awards 2021
