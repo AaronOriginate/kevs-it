@@ -1,0 +1,68 @@
+---
+interface FeatureCard {
+  icon: string;
+  title: string;
+  description: string;
+  href?: string;
+}
+
+interface Props {
+  cards: FeatureCard[];
+}
+
+const { cards } = Astro.props;
+
+const iconPaths: Record<string, string> = {
+  shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+  lock: 'M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zM7 11V7a5 5 0 0 1 10 0v4M12 16v2',
+  monitor: 'M20 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8 21h8M12 17v4',
+};
+---
+
+<!-- Feature strip - overlaps hero with negative margin like Sentrisec -->
+<section class="relative z-10 -mt-20" aria-label="Key features">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-0">
+      {cards.map((card, i) => (
+        <article
+          class={`bg-card-surface border border-border-subtle p-8 lg:p-10 fade-up stagger-${i + 1} card-hover`}
+        >
+          <!-- Icon -->
+          <div class="w-10 h-10 border border-cyan/30 flex items-center justify-center mb-5">
+            <svg
+              class="w-5 h-5 text-cyan"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d={iconPaths[card.icon] || iconPaths.shield} />
+            </svg>
+          </div>
+
+          <h3 class="text-[16px] uppercase tracking-normal text-text-primary font-normal mb-3">
+            {card.title}
+          </h3>
+          <p class="text-[14px] text-text-secondary leading-[1.4]">
+            {card.description}
+          </p>
+          {card.href && (
+            <a
+              href={card.href}
+              class="inline-flex items-center gap-2 mt-5 text-[13px] text-cyan uppercase tracking-wider hover:brightness-125 transition-all duration-200"
+              {...(card.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              Learn more
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

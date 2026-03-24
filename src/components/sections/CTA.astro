@@ -1,0 +1,92 @@
+---
+interface Props {
+  heading: string;
+  bodyParagraphs: string[];
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+  socialProofText?: string;
+  image?: { src: string; alt: string };
+}
+
+const { heading, bodyParagraphs, primaryCta, secondaryCta, socialProofText, image } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32 overflow-hidden" aria-label="Call to action">
+  <div class="relative z-10 mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Social proof cluster - overlapping avatars like Sentrisec -->
+    {socialProofText && (
+      <div class="flex flex-col items-center gap-4 mb-10 fade-up">
+        <div class="flex items-center -space-x-3">
+          {['M', 'C', 'K', 'S'].map((initial) => (
+            <div class="w-10 h-10 rounded-full bg-card-surface border-2 border-page-bg flex items-center justify-center overflow-hidden">
+              <span class="text-[12px] text-cyan uppercase">{initial}</span>
+            </div>
+          ))}
+          <div class="w-10 h-10 rounded-full bg-cyan/20 border-2 border-page-bg flex items-center justify-center">
+            <span class="text-[11px] text-cyan">4+</span>
+          </div>
+        </div>
+        <p class="text-[13px] text-text-secondary uppercase tracking-wider">
+          {socialProofText}
+        </p>
+      </div>
+    )}
+
+    <!-- Large centered heading -->
+    <div class="text-center fade-up stagger-2">
+      <h2 class="text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal max-w-4xl mx-auto">
+        {heading}
+      </h2>
+    </div>
+
+    <!-- Body text -->
+    <div class="mt-8 max-w-2xl mx-auto text-center space-y-4">
+      {bodyParagraphs.map((para, i) => (
+        <p class={`text-[14px] text-text-primary/90 leading-[1.6] fade-up stagger-${i + 3}`}>
+          {para}
+        </p>
+      ))}
+    </div>
+
+    <!-- Dual CTAs -->
+    <div class="mt-10 flex flex-wrap justify-center gap-4 fade-up stagger-5">
+      <a
+        href={primaryCta.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan"
+      >
+        {primaryCta.label}
+      </a>
+      <a
+        href={secondaryCta.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
+      >
+        {secondaryCta.label}
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Background globe graphic -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[40%] w-[800px] h-[800px] pointer-events-none opacity-70" aria-hidden="true">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-48 h-48 rounded-full bg-cyan/[0.05] blur-[100px]"></div>
+    </div>
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full animate-globe-rotate" style="animation-duration: 90s;">
+      <circle cx="200" cy="200" r="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.2"/>
+      <circle cx="200" cy="200" r="160" stroke="#8AEDFF" stroke-width="0.3" opacity="0.15"/>
+      <circle cx="200" cy="200" r="130" stroke="#8AEDFF" stroke-width="0.3" opacity="0.1"/>
+      <ellipse cx="200" cy="200" rx="60" ry="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.15"/>
+      <ellipse cx="200" cy="200" rx="120" ry="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.12"/>
+      <ellipse cx="200" cy="200" rx="190" ry="60" stroke="#8AEDFF" stroke-width="0.3" opacity="0.15"/>
+      <ellipse cx="200" cy="200" rx="190" ry="120" stroke="#8AEDFF" stroke-width="0.3" opacity="0.12"/>
+      <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.1" transform="rotate(30 200 200)"/>
+      <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.1" transform="rotate(-30 200 200)"/>
+      <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.1" transform="rotate(60 200 200)"/>
+      <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.3" opacity="0.1" transform="rotate(-60 200 200)"/>
+      <circle cx="200" cy="10" r="2" fill="#8AEDFF" opacity="0.3"/>
+      <circle cx="200" cy="390" r="2" fill="#8AEDFF" opacity="0.3"/>
+      <circle cx="10" cy="200" r="2" fill="#8AEDFF" opacity="0.3"/>
+      <circle cx="390" cy="200" r="2" fill="#8AEDFF" opacity="0.3"/>
+    </svg>
+  </div>
+</section>

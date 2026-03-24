@@ -1,0 +1,63 @@
+---
+interface StatItem {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  finalText: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  bodyParagraphs: string[];
+  stats: StatItem[];
+}
+
+const { eyebrow, heading, bodyParagraphs, stats } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32" aria-label="Statistics">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header -->
+    <div class="fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal whitespace-nowrap">
+        {heading}
+      </h2>
+    </div>
+
+    <!-- Body text - 2 column layout -->
+    <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-4">
+      {bodyParagraphs.map((para, i) => (
+        <p class={`text-[14px] text-text-secondary leading-[1.6] fade-up stagger-${i + 2}`}>
+          {para}
+        </p>
+      ))}
+    </div>
+
+    <!-- Stats grid - 4 columns -->
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-0">
+      {stats.map((stat, i) => (
+        <div
+          class={`bg-card-surface border border-border-subtle p-8 fade-up stagger-${i + 4}`}
+        >
+          <p
+            class="text-[48px] lg:text-[56px] font-normal text-cyan leading-[1] tracking-[-0.02em]"
+            data-counter={stat.value}
+            data-counter-prefix={stat.prefix || ''}
+            data-counter-suffix={stat.suffix || ''}
+            data-counter-final={stat.finalText}
+          >
+            {stat.prefix || ''}{0}{stat.suffix || ''}
+          </p>
+          <p class="mt-4 text-[13px] text-text-secondary leading-[1.5]">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

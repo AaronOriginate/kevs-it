@@ -1,0 +1,100 @@
+---
+interface ServiceFeature {
+  label: string;
+}
+
+interface ServiceCard {
+  icon: 'shield' | 'lock' | 'graduation';
+  title: string;
+  description: string;
+  features: ServiceFeature[];
+  cta: { label: string; href: string };
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  subHeading: string;
+  cards: ServiceCard[];
+}
+
+const { eyebrow, heading, subHeading, cards } = Astro.props;
+
+const iconPaths: Record<ServiceCard['icon'], string> = {
+  shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+  lock: 'M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zM7 11V7a5 5 0 0 1 10 0v4M12 16v2',
+  graduation: 'M22 10l-10-5L2 10l10 5 10-5zM6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5M22 10v6',
+};
+---
+
+<section class="relative py-24 lg:py-32" aria-label="Services" id="services">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header -->
+    <div class="max-w-3xl fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal">
+        {heading}
+      </h2>
+      <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+        {subHeading}
+      </p>
+    </div>
+
+    <!-- Service cards - 3 column like Sentrisec -->
+    <div class="mt-16 grid md:grid-cols-3 gap-0">
+      {cards.map((card, i) => (
+        <article
+          class={`bg-card-surface border border-border-subtle p-8 lg:p-10 flex flex-col fade-up stagger-${i + 2} card-hover`}
+        >
+          <!-- Icon -->
+          <div class="w-10 h-10 border border-cyan/30 flex items-center justify-center mb-6">
+            <svg
+              class="w-5 h-5 text-cyan"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d={iconPaths[card.icon]} />
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">
+            {card.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-[14px] text-text-secondary leading-[1.6] mb-6">
+            {card.description}
+          </p>
+
+          <!-- Feature tags -->
+          <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+            {card.features.map((feature) => (
+              <span class="inline-flex items-center px-3 py-1.5 bg-cyan/[0.08] border border-cyan/20 text-[11px] uppercase tracking-wider text-cyan">
+                {feature.label}
+              </span>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <a
+            href={card.cta.href}
+            class="inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200"
+          >
+            {card.cta.label}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

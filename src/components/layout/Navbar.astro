@@ -1,0 +1,80 @@
+---
+import MobileMenu from '../islands/MobileMenu.tsx';
+
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = '/' } = Astro.props;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  role="banner"
+>
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 text-[22px] font-normal uppercase tracking-normal" aria-label="Kevs IT Home">
+        <svg class="w-10 h-10 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-text-primary tracking-[0.15em]">KEV'S IT</span>
+      </a>
+
+      <!-- Desktop nav - center -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`text-[16px] uppercase tracking-normal transition-colors duration-200 ${
+              currentPage === link.href
+                ? 'text-cyan'
+                : 'text-text-primary hover:text-cyan'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-[26px] py-[14px] bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan"
+        >
+          Book a Meeting
+        </a>
+      </div>
+
+      <!-- Mobile menu (React island) -->
+      <MobileMenu client:load />
+    </div>
+  </div>
+</header>
+
+<style>
+  #navbar {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+
+  #navbar.navbar-solid {
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  #navbar.navbar-hidden {
+    transform: translateY(-100%);
+  }
+</style>

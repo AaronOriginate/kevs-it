@@ -1,0 +1,75 @@
+---
+interface Credential {
+  type: 'award' | 'certification' | 'partnership' | 'education';
+  label: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  credentials: Credential[];
+  postCredentialsText: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+}
+
+const { eyebrow, heading, credentials, postCredentialsText, primaryCta, secondaryCta } = Astro.props;
+
+// Split into scattered rows like Sentrisec
+const row1 = credentials.slice(0, 4);
+const row2 = credentials.slice(4, 7);
+---
+
+<section class="relative py-24 lg:py-32" aria-label="Why choose Kevs IT">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header - centered like Sentrisec -->
+    <div class="text-center fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-6 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal max-w-4xl mx-auto">
+        {heading}
+      </h2>
+    </div>
+
+    <!-- Scattered credential tags - flowing layout like Sentrisec -->
+    <div class="mt-14 flex flex-col items-center gap-3">
+      <!-- Row 1 -->
+      <div class="flex flex-wrap justify-center gap-3">
+        {row1.map((cred, i) => (
+          <div
+            class={`pop-in stagger-${i + 2} inline-flex items-center px-5 py-3 bg-card-surface border border-cyan/20 text-[12px] uppercase tracking-wider text-text-primary`}
+          >
+            {cred.label}
+          </div>
+        ))}
+      </div>
+      <!-- Row 2 -->
+      <div class="flex flex-wrap justify-center gap-3">
+        {row2.map((cred, i) => (
+          <div
+            class={`pop-in stagger-${i + 6} inline-flex items-center px-5 py-3 bg-card-surface border border-cyan/20 text-[12px] uppercase tracking-wider text-text-primary`}
+          >
+            {cred.label}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Dual CTAs below tags - like Sentrisec -->
+    <div class="mt-12 flex flex-wrap justify-center gap-4 fade-up stagger-8">
+      <a
+        href={primaryCta.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan"
+      >
+        {primaryCta.label}
+      </a>
+      <a
+        href={secondaryCta.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
+      >
+        {secondaryCta.label}
+      </a>
+    </div>
+  </div>
+</section>

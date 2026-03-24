@@ -1,0 +1,70 @@
+---
+interface Props {
+  variant?: 'warning' | 'info';
+  dateBold: string;
+  message: string;
+  cta: { label: string; href: string };
+  storageKey?: string;
+}
+
+const { variant = 'warning', dateBold, message, cta, storageKey = 'pstn-banner-dismissed' } = Astro.props;
+
+const isWarning = variant === 'warning';
+---
+
+<div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+<div
+  id="pstn-banner"
+  class={`relative py-4 px-6 lg:px-8 ${isWarning ? 'bg-amber-dim border border-amber-border' : 'bg-accent-surface border border-border-cyan'}`}
+  role="alert"
+>
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pr-10">
+    <div class="flex items-center gap-3 text-[14px]">
+      {isWarning && (
+        <svg class="w-5 h-5 text-amber flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 15.75h.007v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      )}
+      <p class="text-text-primary">
+        <strong class={`${isWarning ? 'text-amber' : 'text-cyan'} font-normal`}>{dateBold}</strong>
+        {' '}{message}
+      </p>
+    </div>
+    <a
+      href={cta.href}
+      class={`flex-shrink-0 text-[14px] uppercase ${isWarning ? 'text-amber hover:text-amber/80' : 'text-cyan hover:text-cyan/80'} transition-colors duration-200 whitespace-nowrap`}
+    >
+      {cta.label} &rarr;
+    </a>
+  </div>
+  <button
+    id="pstn-dismiss"
+    class="absolute top-1/2 right-4 -translate-y-1/2 text-text-secondary hover:text-text-primary transition-colors duration-200 p-1"
+    aria-label="Dismiss banner"
+  >
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+</div>
+
+<script define:vars={{ storageKey }}>
+  const banner = document.getElementById('pstn-banner');
+  const dismiss = document.getElementById('pstn-dismiss');
+  if (banner && localStorage.getItem(storageKey)) {
+    banner.remove();
+  }
+  if (dismiss && banner) {
+    dismiss.addEventListener('click', () => {
+      banner.style.transition = 'opacity 300ms ease, transform 300ms ease';
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(-100%)';
+      setTimeout(() => {
+        banner.remove();
+        localStorage.setItem(storageKey, 'true');
+      }, 300);
+    });
+  }
+</script>

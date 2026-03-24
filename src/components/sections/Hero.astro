@@ -1,0 +1,132 @@
+---
+interface Props {
+  eyebrow?: string;
+  headline: string;
+  subHeadline: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+  badge: { quote: string; author: string; company: string };
+}
+
+const { eyebrow, headline, subHeadline, primaryCta, secondaryCta, badge } = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20 lg:pt-32 lg:pb-24" aria-label="Hero">
+  <!-- Background glow - cyan radial under the globe -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/2 right-[15%] -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-cyan/[0.06] blur-[150px] animate-glow-pulse"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-10 w-full">
+    <div class="grid lg:grid-cols-[65%_35%] items-center gap-12 lg:gap-8">
+      <!-- Left: Copy -->
+      <div>
+        <!-- Eyebrow -->
+        {eyebrow && (
+          <p class="text-[14px] uppercase tracking-normal text-cyan mb-6 fade-up">
+            /{eyebrow}
+          </p>
+        )}
+
+        <!-- Large monospace ALL CAPS heading -->
+        <h1 class="text-[clamp(2rem,4.5vw,72px)] leading-[1] tracking-[-0.03em] font-normal fade-up hero-gradient-text" style="text-transform: uppercase;">
+          {headline}
+        </h1>
+
+        <p class="mt-8 text-[14px] text-text-secondary leading-[1.4] max-w-[520px] fade-up stagger-2">
+          {subHeadline}
+        </p>
+
+        <!-- Dual CTAs - sharp corners -->
+        <div class="mt-10 flex flex-wrap gap-4 fade-up stagger-3">
+          <a
+            href={primaryCta.href}
+            class="inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan btn-glow"
+          >
+            {primaryCta.label}
+          </a>
+          <a
+            href={secondaryCta.href}
+            class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
+          >
+            {secondaryCta.label}
+          </a>
+        </div>
+
+        <!-- Testimonial badge -->
+        <div class="mt-10 flex items-center gap-5 fade-up stagger-4">
+          <div class="flex-shrink-0 w-14 h-14 bg-card-surface border border-border-subtle flex items-center justify-center">
+            <svg class="w-6 h-6 text-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[16px] text-text-primary italic">"{badge.quote}"</p>
+            <p class="text-[14px] text-text-secondary mt-1.5">&mdash; {badge.author}, {badge.company}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Wireframe globe with cyan glow -->
+      <div class="relative flex items-center justify-center lg:justify-end" aria-hidden="true">
+        <div class="relative w-full max-w-[520px] aspect-square">
+          <!-- Globe glow backdrop -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-64 h-64 rounded-full bg-cyan/[0.08] blur-[80px]"></div>
+          </div>
+
+          <!-- Globe SVG - rotating -->
+          <div class="absolute inset-0 animate-globe-rotate will-change-transform">
+            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <!-- Outer circle -->
+              <circle cx="200" cy="200" r="190" stroke="#8AEDFF" stroke-width="0.5" opacity="0.4"/>
+              <circle cx="200" cy="200" r="160" stroke="#8AEDFF" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="200" cy="200" r="130" stroke="#8AEDFF" stroke-width="0.5" opacity="0.2"/>
+              <circle cx="200" cy="200" r="100" stroke="#8AEDFF" stroke-width="0.5" opacity="0.15"/>
+              <!-- Longitude lines -->
+              <ellipse cx="200" cy="200" rx="60" ry="190" stroke="#8AEDFF" stroke-width="0.5" opacity="0.3"/>
+              <ellipse cx="200" cy="200" rx="120" ry="190" stroke="#8AEDFF" stroke-width="0.5" opacity="0.25"/>
+              <ellipse cx="200" cy="200" rx="160" ry="190" stroke="#8AEDFF" stroke-width="0.5" opacity="0.2"/>
+              <!-- Latitude lines -->
+              <ellipse cx="200" cy="200" rx="190" ry="60" stroke="#8AEDFF" stroke-width="0.5" opacity="0.3"/>
+              <ellipse cx="200" cy="200" rx="190" ry="120" stroke="#8AEDFF" stroke-width="0.5" opacity="0.25"/>
+              <ellipse cx="200" cy="200" rx="190" ry="160" stroke="#8AEDFF" stroke-width="0.5" opacity="0.2"/>
+              <!-- Diagonal mesh -->
+              <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.4" opacity="0.15" transform="rotate(30 200 200)"/>
+              <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.4" opacity="0.15" transform="rotate(-30 200 200)"/>
+              <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.4" opacity="0.15" transform="rotate(60 200 200)"/>
+              <ellipse cx="200" cy="200" rx="90" ry="190" stroke="#8AEDFF" stroke-width="0.4" opacity="0.15" transform="rotate(-60 200 200)"/>
+              <!-- Node dots -->
+              <circle cx="200" cy="10" r="3" fill="#8AEDFF" opacity="0.6"/>
+              <circle cx="200" cy="390" r="3" fill="#8AEDFF" opacity="0.6"/>
+              <circle cx="10" cy="200" r="3" fill="#8AEDFF" opacity="0.6"/>
+              <circle cx="390" cy="200" r="3" fill="#8AEDFF" opacity="0.6"/>
+              <circle cx="200" cy="70" r="2.5" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="200" cy="330" r="2.5" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="70" cy="200" r="2.5" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="330" cy="200" r="2.5" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="105" cy="80" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="295" cy="80" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="105" cy="320" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="295" cy="320" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="65" cy="135" r="2" fill="#8AEDFF" opacity="0.35"/>
+              <circle cx="335" cy="135" r="2" fill="#8AEDFF" opacity="0.35"/>
+              <circle cx="65" cy="265" r="2" fill="#8AEDFF" opacity="0.35"/>
+              <circle cx="335" cy="265" r="2" fill="#8AEDFF" opacity="0.35"/>
+              <circle cx="135" cy="50" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="265" cy="50" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="135" cy="350" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <circle cx="265" cy="350" r="2" fill="#8AEDFF" opacity="0.4"/>
+              <!-- Inner bright nodes -->
+              <circle cx="150" cy="150" r="2" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="250" cy="150" r="2" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="150" cy="250" r="2" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="250" cy="250" r="2" fill="#8AEDFF" opacity="0.5"/>
+              <circle cx="200" cy="200" r="3" fill="#8AEDFF" opacity="0.7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

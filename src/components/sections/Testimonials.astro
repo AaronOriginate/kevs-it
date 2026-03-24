@@ -1,0 +1,64 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+  avatar?: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  testimonials: Testimonial[];
+}
+
+const { eyebrow, heading, testimonials } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32" aria-label="Testimonials">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header - centered like Sentrisec -->
+    <div class="text-center fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal max-w-4xl mx-auto">
+        {heading}
+      </h2>
+    </div>
+
+    <!-- Testimonial cards - 2 column like Sentrisec -->
+    <div class="mt-14 grid md:grid-cols-2 gap-0">
+      {testimonials.map((testimonial, i) => (
+        <blockquote
+          class={`bg-card-surface border border-border-subtle p-8 lg:p-10 fade-up stagger-${i + 2}`}
+        >
+          <p class="text-[14px] text-text-secondary leading-[1.6] italic">
+            "{testimonial.quote}"
+          </p>
+          <footer class="mt-6 flex items-center gap-4">
+            <!-- Avatar circle -->
+            <div class="w-12 h-12 rounded-full bg-elevated-surface border border-border-subtle flex items-center justify-center overflow-hidden">
+              {testimonial.avatar ? (
+                <img src={testimonial.avatar} alt={testimonial.author} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                <span class="text-[16px] text-cyan uppercase">
+                  {testimonial.author.split(' ').map(n => n[0]).join('')}
+                </span>
+              )}
+            </div>
+            <div>
+              <cite class="not-italic text-[14px] font-normal text-text-primary uppercase">
+                {testimonial.author}
+              </cite>
+              <p class="text-[12px] text-text-muted mt-0.5">
+                {testimonial.role}, {testimonial.company}
+              </p>
+            </div>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

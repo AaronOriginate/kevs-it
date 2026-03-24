@@ -1,0 +1,124 @@
+---
+interface PricingPlan {
+  name: string;
+  price: string;
+  priceValue: number;
+  priceSuffix: string;
+  description: string;
+  isPopular?: boolean;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  subHeading: string;
+  plans: PricingPlan[];
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+  cancellationText: string;
+  testimonial: { quote: string; author: string };
+}
+
+const { eyebrow, heading, subHeading, plans, primaryCta, secondaryCta, cancellationText, testimonial } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32" aria-label="Pricing" id="pricing">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal">
+        {heading}
+      </h2>
+      <p class="mt-6 text-[14px] text-text-secondary leading-[1.6]">
+        {subHeading}
+      </p>
+    </div>
+
+    <!-- Pricing cards - 3 column, sharp corners -->
+    <div class="mt-16 grid md:grid-cols-3 gap-0">
+      {plans.map((plan, i) => (
+        <article
+          class={`relative bg-card-surface border border-border-subtle p-8 lg:p-10 flex flex-col fade-up stagger-${i + 2} card-hover ${
+            plan.isPopular ? 'border-cyan' : ''
+          }`}
+        >
+          {plan.isPopular && (
+            <div class="absolute -top-px left-0 right-0 h-[2px] bg-cyan"></div>
+          )}
+
+          <h3 class="text-[18px] uppercase tracking-normal text-text-primary font-normal">
+            {plan.name}
+          </h3>
+
+          {plan.isPopular && (
+            <span class="inline-flex self-start mt-2 px-3 py-1 bg-cyan text-black text-[11px] uppercase tracking-wider">
+              Most Popular
+            </span>
+          )}
+
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-[12px] text-text-muted uppercase">From</span>
+            <span class="text-[48px] text-cyan leading-[1] tracking-[-0.02em] font-normal">
+              &pound;{plan.priceValue}
+            </span>
+            <span class="text-[12px] text-text-muted">{plan.priceSuffix}</span>
+          </div>
+
+          <p class="mt-4 text-[14px] text-text-secondary leading-[1.6]">
+            {plan.description}
+          </p>
+
+          <a
+            href={plan.ctaHref}
+            class="mt-8 inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200"
+          >
+            {plan.ctaLabel}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTAs -->
+    <div class="mt-14 flex flex-wrap justify-center gap-4 fade-up stagger-5">
+      <a
+        href={primaryCta.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan"
+      >
+        {primaryCta.label}
+      </a>
+      <a
+        href={secondaryCta.href}
+        class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
+      >
+        {secondaryCta.label}
+      </a>
+    </div>
+
+    <!-- Cancellation text -->
+    <p class="mt-8 text-center text-[13px] text-text-secondary fade-up stagger-6">
+      {cancellationText}
+    </p>
+
+    <!-- Testimonial -->
+    <div class="mt-10 max-w-2xl mx-auto fade-up stagger-7">
+      <blockquote class="bg-card-surface border border-border-subtle p-8">
+        <p class="text-[14px] text-text-secondary italic leading-[1.6]">
+          "{testimonial.quote}"
+        </p>
+        <footer class="mt-4">
+          <cite class="not-italic text-[13px] text-text-primary uppercase">
+            &mdash; {testimonial.author}
+          </cite>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>

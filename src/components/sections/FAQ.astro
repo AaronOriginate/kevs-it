@@ -1,0 +1,47 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  items: FAQItem[];
+}
+
+const { eyebrow, heading, items } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32" aria-label="Frequently asked questions">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header - centered like Sentrisec -->
+    <div class="text-center fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal max-w-4xl mx-auto">
+        {heading}
+      </h2>
+    </div>
+
+    <!-- Accordion - dark surface items, sharp corners -->
+    <div class="mt-14 max-w-3xl mx-auto">
+      {items.map((item, i) => (
+        <div class={`faq-item fade-up stagger-${i + 2}`} data-faq>
+          <button class="faq-toggle" aria-expanded="false">
+            <span>{item.question}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p class="text-[14px] text-text-secondary leading-[1.6]">
+                {item.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

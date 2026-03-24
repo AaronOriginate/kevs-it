@@ -1,0 +1,74 @@
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageCta?: { label: string; href: string };
+  cards: { title: string; description: string }[];
+}
+
+const { eyebrow, heading, imageSrc, imageAlt, imageCta, cards } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32" aria-label="About">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <!-- Header -->
+    <div class="max-w-3xl fade-up">
+      <p class="text-[14px] uppercase tracking-normal text-text-secondary">
+        /{eyebrow}
+      </p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,64px)] leading-[1] tracking-[-0.02em] font-normal">
+        {heading}
+      </h2>
+    </div>
+
+    <!-- Full-width image with bracket corner frames -->
+    <div class="mt-12 relative fade-up stagger-2">
+      <div class="relative w-full aspect-[16/7] overflow-hidden bg-card-surface">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          class="w-full h-full object-cover opacity-80"
+          loading="lazy"
+        />
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- Bracket corner frames - like Sentrisec -->
+        <div class="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-cyan/50"></div>
+        <div class="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-cyan/50"></div>
+        <div class="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-cyan/50"></div>
+        <div class="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-cyan/50"></div>
+
+        <!-- Center CTA over image -->
+        {imageCta && (
+          <div class="absolute inset-0 flex items-center justify-center">
+            <a
+              href={imageCta.href}
+              class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-primary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-cyan hover:text-cyan transition-all duration-200"
+            >
+              {imageCta.label}
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- Mission/Vision cards -->
+    <div class="mt-0 grid md:grid-cols-2 gap-0">
+      {cards.map((card, i) => (
+        <article
+          class={`bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-${i + 3}`}
+        >
+          <h3 class="text-[24px] uppercase tracking-[-0.02em] font-normal mb-6">
+            {card.title}
+          </h3>
+          <p class="text-[14px] text-text-secondary leading-[1.6]">
+            {card.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

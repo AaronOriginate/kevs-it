@@ -1,0 +1,275 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Hero from '../components/sections/Hero.astro';
+import FeatureStrip from '../components/sections/FeatureStrip.astro';
+import About from '../components/sections/About.astro';
+import FeatureGrid from '../components/sections/FeatureGrid.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
+import Stats from '../components/sections/Stats.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import Banner from '../components/sections/Banner.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<Base
+  title="IT Support Bristol | Kevs IT — From £40/month"
+  description="IT support and cyber security for Bristol businesses with 1–50 people. 14 years' experience. Forensic computing background. No jargon, no lock-in."
+>
+  <Navbar currentPage="/" />
+
+  <main>
+    <!-- 1. Hero -->
+    <Hero
+      eyebrow="Bristol's trusted IT Support & Cyber Security Partner"
+      headline="You didn't start a business to debug your own Wi-Fi."
+      subHeadline="IT support and cyber security for Bristol businesses with 1–50 people. From someone who studied forensic computing at UWE Bristol, spent 14 years fixing the things other providers leave broken — and who picks up the phone himself."
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'See what we do', href: '#services' }}
+      badge={{ quote: 'I believe everyone needs a Kevin!', author: 'Maria', company: 'MCF Business Solutions' }}
+    />
+
+    <!-- 2. Feature Strip (3-column, overlapping hero) -->
+    <FeatureStrip
+      cards={[
+        {
+          icon: 'shield',
+          title: 'TechShield Pro',
+          description: 'Helpdesk support that answers on the first call, antivirus that\'s running (not just installed), backups checked every morning.',
+          href: '/techshield-pro',
+        },
+        {
+          icon: 'lock',
+          title: 'Cyber Essentials',
+          description: 'Certification that proves you take security seriously. Increasingly required for government contracts and supply chain tenders.',
+          href: '/cyber-essentials',
+        },
+        {
+          icon: 'monitor',
+          title: 'Cipher Academy',
+          description: 'Phishing awareness, password hygiene, and how to spot a dodgy email before it costs you £10,000.',
+          href: 'https://cipher-academy.co.uk',
+        },
+      ]}
+    />
+
+    <!-- 3. About Section (image + mission/vision cards) -->
+    <About
+      eyebrow="About Kevs IT"
+      heading="Your trusted partner in IT support and cyber security"
+      imageSrc="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=80"
+      imageAlt="IT professional helping a colleague at their desk"
+      imageCta={{ label: 'Get to know our team', href: '/about' }}
+      cards={[
+        {
+          title: 'Our Mission',
+          description: 'To give Bristol businesses with 1–50 people the same quality of IT support and cyber security that large enterprises take for granted. No jargon, no lock-in, no 40-page reports you\'ll never read. Just someone who picks up the phone and sorts it out.',
+        },
+        {
+          title: 'Our Approach',
+          description: 'Kevin spent years in forensic computing investigating what goes wrong when businesses aren\'t protected. After a while, he decided he\'d rather stop the problems than investigate them after the fact. That\'s what Kevs IT is — prevention, not just response.',
+        },
+      ]}
+    />
+
+    <!-- 4. Services (3-column detailed cards) -->
+    <FeatureGrid
+      eyebrow="Our Services"
+      heading="Comprehensive IT solutions to protect your business"
+      subHeading="We handle your IT so you can get back to running your business. Helpdesk, security, backups, the lot. If it plugs in or connects to Wi-Fi, it's our problem now."
+      cards={[
+        {
+          icon: 'shield',
+          title: 'TechShield Pro — IT Support',
+          description: "Your IT, sorted. Helpdesk support that answers on the first call, antivirus that's running (not just installed), backups that get checked every morning. From £40/month for sole traders, £75/user/month for teams. No lock-in.",
+          features: [
+            { label: 'Helpdesk Support' },
+            { label: 'Antivirus Management' },
+            { label: 'Daily Backup Checks' },
+            { label: 'Proactive Monitoring' },
+          ],
+          cta: { label: 'See TechShield Pro plans', href: '/techshield-pro' },
+        },
+        {
+          icon: 'lock',
+          title: 'Cyber Essentials — Security Consultancy',
+          description: "43% of UK businesses got hit by a cyber breach last year. Cyber Essentials certification proves you take it seriously — and it's increasingly required for government contracts and supply chain tenders. Kevin walks you through the whole process in plain English.",
+          features: [
+            { label: 'Certification Support' },
+            { label: 'Compliance Guidance' },
+            { label: 'Plain English Reports' },
+            { label: 'Supply Chain Ready' },
+          ],
+          cta: { label: 'Learn about Cyber Essentials', href: '/cyber-essentials' },
+        },
+        {
+          icon: 'graduation',
+          title: 'Cipher Academy — Security Training',
+          description: "We don't just protect your business. We train your people. Built from Kevin's forensic computing background — the kind where you pull apart hard drives and trace how a breach happened. Because the best firewall in the world can't stop someone clicking a bad link.",
+          features: [
+            { label: 'Phishing Awareness' },
+            { label: 'Password Hygiene' },
+            { label: 'Security Culture' },
+            { label: 'Comprehensive Education' },
+          ],
+          cta: { label: 'Visit Cipher Academy', href: 'https://cipher-academy.co.uk' },
+        },
+      ]}
+    />
+
+    <!-- 5. Why Choose / Scattered Tags -->
+    <SocialProof
+      eyebrow="Why Choose Kevs IT?"
+      heading="Four awards in four years. CyberFirst supported. Acronis partner. Forensic computing background."
+      credentials={[
+        { type: 'award', label: 'Bristol Business Award 2024' },
+        { type: 'award', label: 'Global Business Awards 2024' },
+        { type: 'award', label: 'Global Business Awards 2022' },
+        { type: 'award', label: 'UK Enterprise Awards 2021' },
+        { type: 'certification', label: 'CyberFirst Supported' },
+        { type: 'partnership', label: 'Acronis Partner' },
+        { type: 'education', label: 'UWE Bristol — Forensic Computing' },
+      ]}
+      postCredentialsText="Four awards in four years. Not the kind you pay for — the kind where your clients and your work get judged by people who know the difference."
+      primaryCta={{ label: 'Book a meeting', href: '/contact' }}
+      secondaryCta={{ label: 'See what we do', href: '#services' }}
+    />
+
+    <!-- 6. Stats Section -->
+    <Stats
+      eyebrow="The Price of Winging It"
+      heading="The price of winging it"
+      bodyParagraphs={[
+        "Nobody wakes up thinking \"today I'll lose £3,000 because the server went down.\" But that's roughly what an hour of downtime costs a small business in the UK. And it's not just the money. It's the 96 minutes your team loses every single day wrestling with IT problems that shouldn't exist. The password resets. The printer that won't connect. The email that \"just stopped working\" on a Tuesday morning.",
+        "Here's the thing. Most of this is preventable. Not with some magic box or a complicated system — just with someone who's paying attention to your IT before it breaks. Kevin spent years in forensic computing investigating what goes wrong when businesses aren't protected. After a while, he decided he'd rather stop the problems than investigate them after the fact.",
+        "Here's a quick test: ask anyone in your business to name three ways they keep the company cyber secure. If they can't, that's not their fault. It's a training gap. And it's fixable.",
+      ]}
+      stats={[
+        { value: 3000, prefix: '£', suffix: '+', finalText: '£3,000+', label: 'Average cost per hour of downtime for UK SMBs' },
+        { value: 43, prefix: '', suffix: '%', finalText: '43%', label: 'Of UK businesses reported a cyber breach in the last 12 months' },
+        { value: 96, prefix: '', suffix: ' min', finalText: '96 min', label: 'Lost per employee, per day, to IT issues' },
+        { value: 14, prefix: '', suffix: ' years', finalText: '14 years', label: "Kevin's been doing this. Forensic computing background, four industry awards, and he still picks up the phone himself." },
+      ]}
+    />
+
+    <!-- 7. Testimonials (2-column) -->
+    <Testimonials
+      eyebrow="What Others Say"
+      heading="Trusted by businesses across Bristol"
+      testimonials={[
+        {
+          quote: "I believe everyone needs a Kevin! The support we get from Kevs IT has been transformational for our business. He genuinely cares about getting things right.",
+          author: "Maria",
+          role: "Director",
+          company: "MCF Business Solutions",
+          avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100&q=80",
+        },
+        {
+          quote: "The onboarding service was faultless, smooth and efficient. I wouldn't hesitate to recommend Kevs IT to anyone looking to switch providers. The switch was done in days, not weeks.",
+          author: "Catherine Collar",
+          role: "Director",
+          company: "Collar Business Solutions",
+          avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&h=100&q=80",
+        },
+      ]}
+    />
+
+    <!-- 8. FAQ Accordion -->
+    <FAQ
+      eyebrow="FAQ"
+      heading="Your most common questions answered"
+      items={[
+        {
+          question: "What size businesses does Kevs IT support?",
+          answer: "We work with Bristol businesses from 1 to 50 people. Whether you're a sole trader who needs reliable IT backup, or a team of 30 who need someone managing your systems every day — we've got a plan for that.",
+        },
+        {
+          question: "How quickly can you respond to IT issues?",
+          answer: "Kevin picks up the phone himself. For urgent issues, response is same-day. Most problems are resolved remotely within hours, not days. And because we monitor your systems proactively, we often fix things before you even notice.",
+        },
+        {
+          question: "Can you help with Cyber Essentials certification?",
+          answer: "Yes. Kevin walks you through the entire Cyber Essentials process in plain English. No jargon, no 40-page reports. It's increasingly required for government contracts and supply chain tenders, and we make it straightforward.",
+        },
+        {
+          question: "What happens if we want to leave?",
+          answer: "30 days' notice. Not 12 months. Not 6. Thirty days. We'd rather earn your business every month than trap you in a contract. Catherine Collar switched to us from another provider — the switch was done in days, not weeks.",
+        },
+        {
+          question: "Do you offer training for our team?",
+          answer: "Cipher Academy is Kevin's training platform, built from his forensic computing background. Phishing awareness, password hygiene, how to spot a dodgy email before it costs you £10,000. Because the best firewall in the world can't stop someone clicking a bad link.",
+        },
+      ]}
+    />
+
+    <!-- 9. Pricing Taster -->
+    <Pricing
+      eyebrow="Pricing"
+      heading="Transparent pricing. Genuinely."
+      subHeading="No 'contact us for a quote' games. No hidden setup fees. Here's what it costs."
+      plans={[
+        {
+          name: 'Sole Trader',
+          price: '£40/month',
+          priceValue: 40,
+          priceSuffix: '/month',
+          description: 'One-person businesses who still deserve proper IT support',
+          ctaLabel: 'See full plans',
+          ctaHref: '/pricing',
+        },
+        {
+          name: 'SMB',
+          price: '£75/user/month',
+          priceValue: 75,
+          priceSuffix: '/user/month',
+          description: 'Teams of 2–30 who need someone looking after their systems every day',
+          isPopular: true,
+          ctaLabel: 'See full plans',
+          ctaHref: '/pricing',
+        },
+        {
+          name: 'Enterprise',
+          price: '£99/user/month',
+          priceValue: 99,
+          priceSuffix: '/user/month',
+          description: 'Businesses with 30–50 people who need a dedicated IT partner, not a faceless helpdesk',
+          ctaLabel: 'See full plans',
+          ctaHref: '/pricing',
+        },
+      ]}
+      primaryCta={{ label: 'See full plans and features', href: '/pricing' }}
+      secondaryCta={{ label: 'Book a meeting', href: '/contact' }}
+      cancellationText="Every plan comes with 30 days' cancellation notice. Not 12 months. Not 6. Thirty days. We'd rather earn your business every month than trap you in a contract."
+      testimonial={{
+        quote: "The onboarding service was faultless, smooth and efficient. I wouldn't hesitate to recommend Kevs IT to anyone looking to switch providers.",
+        author: 'Catherine Collar',
+      }}
+    />
+
+    <!-- 10. PSTN Warning Banner -->
+    <Banner
+      variant="warning"
+      dateBold="January 2027."
+      message="The UK's traditional phone network is switching off permanently. BT's PSTN shutdown affects every business still using analogue phone lines — and 82% of small businesses aren't ready."
+      cta={{ label: "Check if you're ready", href: '/telecoms' }}
+    />
+
+    <!-- 11. CTA Footer -->
+    <CTA
+      heading="Let's have a chat. No commitment, no jargon, no pressure."
+      bodyParagraphs={[
+        "Book a 30-minute meeting with Kevin. Just a conversation about whether we're the right fit. If we're not, he'll tell you — and probably point you toward someone who is. (Yes, really.)",
+        "And if something doesn't fit neatly into a tier? Let's talk. Kevin builds packages around what you need, not what's convenient to sell. Our clients tend to stay. Not because they're locked in, but because it works.",
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+      socialProofText="Join 30+ businesses trusting Kevs IT"
+      image={{ src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80', alt: 'Team collaborating in a modern office' }}
+    />
+  </main>
+
+  <Footer />
+</Base>
