@@ -1,5 +1,5 @@
 ---
-import MobileMenu from '../islands/MobileMenu.tsx';
+import MobileMenu from './MobileMenu.astro';
 
 interface Props {
   currentPage?: string;
@@ -10,9 +10,22 @@ const { currentPage = '/' } = Astro.props;
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
+  {
+    label: 'Services',
+    href: '/services',
+    children: [
+      { label: 'TechShield Pro', href: '/techshield-pro' },
+      { label: 'Cyber Essentials', href: '/cyber-essentials' },
+      { label: 'Cipher Academy', href: '/cipher-academy' },
+      { label: 'Telecoms', href: '/telecoms' },
+      { label: 'Hardware & Repairs', href: '/shop' },
+    ],
+  },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'Contact', href: '/contact' },
 ];
+
+const servicePages = ['/services', '/techshield-pro', '/cyber-essentials', '/cipher-academy', '/telecoms', '/shop'];
 ---
 
 <header
@@ -32,18 +45,50 @@ const navLinks = [
 
       <!-- Desktop nav - center -->
       <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class={`text-[16px] uppercase tracking-normal transition-colors duration-200 ${
-              currentPage === link.href
-                ? 'text-cyan'
-                : 'text-text-primary hover:text-cyan'
-            }`}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map((link) =>
+          link.children ? (
+            <div class="services-dropdown relative">
+              <a
+                href={link.href}
+                class={`text-[16px] uppercase tracking-normal transition-colors duration-200 inline-flex items-center gap-1.5 ${
+                  servicePages.includes(currentPage)
+                    ? 'text-cyan'
+                    : 'text-text-primary hover:text-cyan'
+                }`}
+              >
+                {link.label}
+                <svg class="w-3.5 h-3.5 transition-transform duration-200 dropdown-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <div class="services-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 pointer-events-none transition-all duration-200">
+                <div class="bg-black/95 backdrop-blur-xl border border-border-subtle min-w-[220px]">
+                  {link.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class={`block px-6 py-3 text-[14px] uppercase tracking-normal transition-colors duration-150 ${
+                        currentPage === child.href
+                          ? 'text-cyan bg-white/[0.03]'
+                          : 'text-text-secondary hover:text-cyan hover:bg-white/[0.03]'
+                      }`}
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class={`text-[16px] uppercase tracking-normal transition-colors duration-200 ${
+                currentPage === link.href
+                  ? 'text-cyan'
+                  : 'text-text-primary hover:text-cyan'
+              }`}
+            >
+              {link.label}
+            </a>
+          )
+        )}
       </nav>
 
       <!-- Desktop CTA -->
@@ -56,8 +101,8 @@ const navLinks = [
         </a>
       </div>
 
-      <!-- Mobile menu (React island) -->
-      <MobileMenu client:load />
+      <!-- Mobile menu -->
+      <MobileMenu currentPage={currentPage} />
     </div>
   </div>
 </header>
@@ -76,5 +121,37 @@ const navLinks = [
 
   #navbar.navbar-hidden {
     transform: translateY(-100%);
+  }
+
+  /* Faint underline on hover */
+  nav a,
+  .services-dropdown > a {
+    position: relative;
+  }
+
+  nav a::after,
+  .services-dropdown > a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgba(138, 237, 255, 0.4);
+    transition: width 0.2s ease;
+  }
+
+  nav a:hover::after,
+  .services-dropdown:hover > a::after {
+    width: 100%;
+  }
+
+  .services-dropdown:hover .services-dropdown-panel {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .services-dropdown:hover .dropdown-chevron {
+    transform: rotate(180deg);
   }
 </style>

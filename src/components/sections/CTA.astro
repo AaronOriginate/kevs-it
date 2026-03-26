@@ -3,7 +3,7 @@ interface Props {
   heading: string;
   bodyParagraphs: string[];
   primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
   socialProofText?: string;
   image?: { src: string; alt: string };
 }
@@ -56,12 +56,14 @@ const { heading, bodyParagraphs, primaryCta, secondaryCta, socialProofText, imag
       >
         {primaryCta.label}
       </a>
-      <a
-        href={secondaryCta.href}
-        class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
-      >
-        {secondaryCta.label}
-      </a>
+      {secondaryCta && (
+        <a
+          href={secondaryCta.href}
+          class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
+        >
+          {secondaryCta.label}
+        </a>
+      )}
     </div>
   </div>
 

@@ -1,0 +1,235 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base
+  title="TechShield Pro — IT Support from £40/month | Kevs IT Bristol"
+  description="Managed IT support for Bristol businesses. Three plans, transparent pricing, 30-day cancellation. Helpdesk, security, backups — from £40/month for sole traders."
+>
+  <Navbar currentPage="/techshield-pro" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="IT support that tells you the price before you pick up the phone."
+      subHeadline="TechShield Pro is managed IT support for Bristol businesses with 1–50 people. Three plans. Published pricing. And a 30-day cancellation policy because Kevin would rather earn your business every month than lock you into a contract you can't escape."
+      primaryCta={{ label: 'See the plans', href: '#pricing' }}
+      secondaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+    />
+
+    <!-- 2. You've been here before -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            Sound familiar?
+          </h2>
+        </div>
+        <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-6">
+          <p class="text-[14px] text-text-secondary leading-[1.6] fade-up stagger-2">
+            You call your IT provider. Voicemail. You leave a message. Nothing for four hours. By the time someone rings back, your office manager's already spent 45 minutes on YouTube trying to fix the printer herself.
+          </p>
+          <p class="text-[14px] text-text-secondary leading-[1.6] fade-up stagger-3">
+            Or this one. You get the invoice and there's a line item you've never seen before. "Emergency out-of-hours callout — £175." Nobody told you that your support contract didn't cover Tuesdays after 5pm. But apparently it's in clause 14.2 of the terms you signed eighteen months ago.
+          </p>
+          <p class="text-[14px] text-text-secondary leading-[1.6] fade-up stagger-4">
+            And the jargon. God, the jargon. "We've deployed an endpoint detection and response solution across your attack surface." Brilliant. What does that mean for the person in accounts who can't open her spreadsheet?
+          </p>
+          <p class="text-[14px] text-text-secondary leading-[1.6] fade-up stagger-5">
+            Bad IT support doesn't announce itself. It just quietly costs you time, money, and the slow-building suspicion that you're paying for something that isn't actually working. The average UK business loses around £3,000 for every hour of downtime. That's not a scare tactic — it's a government-backed statistic. And most of those hours are preventable.
+          </p>
+        </div>
+        <p class="mt-8 text-[14px] text-text-secondary leading-[1.6] max-w-2xl fade-up stagger-6">
+          TechShield Pro exists because Kevin got tired of hearing the same story from every new client. Almost every business that comes to Kevs IT will mention their previous provider. The word they use most? Incompetent.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Pricing -->
+    <Pricing
+      eyebrow="Pricing"
+      heading="Three plans. No hidden costs. No surprises."
+      subHeading="Pick the one that fits. Modify anytime. Leave with 30 days' notice. Every price you see here is the price you pay."
+      plans={[
+        {
+          name: 'Sole Trader',
+          price: '£40/month',
+          priceValue: 40,
+          priceSuffix: '/month',
+          description: 'One-person businesses. Freelancers. Contractors. Almost nobody else offers a plan for just one person. Kevin does.',
+          ctaLabel: 'Book a meeting',
+          ctaHref: '/contact',
+        },
+        {
+          name: 'SMB',
+          price: '£75/user/month',
+          priceValue: 75,
+          priceSuffix: '/user/month',
+          description: 'Teams of 2–50. On-site support, network management, phishing simulations, and starter/leaver setup.',
+          isPopular: true,
+          ctaLabel: 'Book a meeting',
+          ctaHref: '/contact',
+        },
+        {
+          name: 'Enterprise',
+          price: '£99/user/month',
+          priceValue: 99,
+          priceSuffix: '/user/month',
+          description: 'Dedicated account manager, quarterly reviews, priority response, and Cyber Essentials prep included.',
+          ctaLabel: 'Book a meeting',
+          ctaHref: '/contact',
+        },
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Compare all features', href: '#features' }}
+      cancellationText="Every plan comes with 30 days' cancellation notice. Not 12 months. Not 6. Thirty days. We'd rather earn your business every month than trap you in a contract."
+      testimonial={{
+        quote: "The onboarding service was faultless, smooth and efficient. I wouldn't hesitate to recommend Kevs IT to anyone looking to switch providers.",
+        author: 'Catherine Collar',
+      }}
+    />
+
+    <!-- 4. All-inclusive features -->
+    <section class="relative py-20 lg:py-28" id="features">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            No asterisks. No fine print.
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            Every TechShield Pro plan is all-inclusive. That means the price you see is the price you pay. There's no separate charge for "emergency" calls. No premium rate for evenings. No invoice shock because someone at your office called the helpdesk twice in one week.
+          </p>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-0">
+          {[
+            { title: 'Helpdesk support', desc: 'Call or email when something\'s wrong. Someone responds. Within hours, not days.', icon: 'helpdesk' },
+            { title: 'Antivirus & threat protection', desc: 'Software that catches bad stuff before it reaches your team. Managed, updated, monitored.', icon: 'virus-protection' },
+            { title: 'Cloud backups', desc: 'Your files, copied somewhere safe every day. If a laptop dies or someone deletes something critical, it\'s recoverable.', icon: 'backup' },
+            { title: 'Remote support', desc: 'Most problems get fixed without anyone visiting your office. Screen sharing, remote access, sorted in minutes.', icon: 'tech-support' },
+            { title: 'Monitoring', desc: 'We watch your systems so you don\'t have to. If something\'s going wrong at 2am, we know before you do.', icon: 'monitoring' },
+            { title: 'Monthly health checks', desc: 'Regular reviews of your systems to catch problems before they become emergencies.', icon: 'software-update' },
+          ].map((feature, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 fade-up stagger-${i + 2}`}>
+              <div class="mb-5">
+                <Icon name={feature.icon} class="w-20 h-20" gradient />
+              </div>
+              <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">{feature.title}</h3>
+              <p class="text-[14px] text-text-secondary leading-[1.6]">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Switching -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Already with another provider?
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Changing IT support sounds stressful. Like changing banks, or moving house, or switching accountant during tax season. You imagine weeks of downtime, lost files, confused staff.
+            </p>
+            <p class="text-[14px] text-text-primary leading-[1.6]">
+              It's not like that.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Catherine Collar switched to Kevs IT from another provider. She'd been putting it off for months. Her words: "The onboarding service was faultless, smooth and efficient. I wouldn't hesitate to recommend Kevs IT to anyone looking to switch providers."
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              What actually happens: Kevin's team gets access to your current setup (with your permission, obviously). They document everything — every device, every user, every licence, every password that's been stored in a spreadsheet called "passwords_FINAL_v3." They build a migration plan. They execute it. And they do it without your team losing a day of work.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              The 30-day cancellation policy works both ways. It means you can leave Kevs IT with 30 days' notice. But it also means Kevin can start looking after your systems within 30 days of you saying yes. Most switches take less than a fortnight.
+            </p>
+            <p class="mt-4 text-[14px] text-cyan leading-[1.6]">
+              No lock-in. 30 days' notice. Stay because we're good, not because you're stuck.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Testimonial -->
+    <Testimonials
+      eyebrow="What Others Say"
+      heading="Don't take our word for it"
+      testimonials={[
+        {
+          quote: "Within hours he had set up a Zoom meeting and talked me through everything.",
+          author: "Michele Smith",
+          role: "Client",
+          company: "Kevs IT",
+        },
+        {
+          quote: "I believe everyone needs a Kevin! The support we get from Kevs IT has been transformational for our business.",
+          author: "Maria",
+          role: "Director",
+          company: "MCF Business Solutions",
+        },
+      ]}
+    />
+
+    <!-- 7. FAQ -->
+    <FAQ
+      eyebrow="FAQ"
+      heading="Frequently asked questions"
+      items={[
+        {
+          question: "What's the difference between the three plans?",
+          answer: "Sole Trader is for one-person businesses — you get helpdesk support, antivirus, backups, and remote fixes. SMB adds on-site visits, network management, phishing simulations, and starter/leaver setup for teams of 2–50. Enterprise includes everything plus a dedicated account manager, quarterly reviews, and Cyber Essentials preparation built in. The honest answer? Most Bristol businesses with 5–30 people end up on SMB. But Kevin will tell you which plan actually fits. He's recommended cheaper plans plenty of times.",
+        },
+        {
+          question: "Is there really no lock-in?",
+          answer: "Really. 30 days' written notice, any time. No exit fees, no penalty clauses, no awkward phone call with a \"retention team.\" If you want to leave, you leave. Kevin's view: if you need a 12-month contract to keep clients, your service isn't good enough.",
+        },
+        {
+          question: "What if I need help outside office hours?",
+          answer: "All plans include monitoring that runs 24/7 — if something critical breaks at 3am, Kevin's systems flag it before your team arrives at 9am. For emergency out-of-hours support, the Enterprise plan includes priority response. SMB and Sole Trader clients can arrange ad-hoc out-of-hours cover if needed. No hidden charges — you'll always know the cost before you agree.",
+        },
+        {
+          question: "How quickly do you respond?",
+          answer: "Within 2 hours of ticket submission. That's the commitment across all plans. Enterprise clients get priority queuing. And Kevin's team regularly beats that 2-hour window — Michele Smith got a Zoom call set up \"within hours\" of her first contact. But we'd rather under-promise and over-deliver than the other way around.",
+        },
+        {
+          question: "Can I switch plans as my business grows?",
+          answer: "Yes. Upgrade, downgrade, add users, remove users. Your plan adapts to what you need right now, not what you needed when you signed up 18 months ago. Changes take effect on your next billing cycle.",
+        },
+        {
+          question: "Do you only cover Bristol?",
+          answer: "Remote support works anywhere. On-site support (SMB and Enterprise plans) covers Bristol and the surrounding area — think Bath, Keynsham, Portishead, Clevedon. If you're further afield, let's talk. Kevin's done on-site work as far as Swindon when the situation called for it.",
+        },
+        {
+          question: "What happens during onboarding?",
+          answer: "Kevin's team audits your current setup, documents everything, migrates what needs migrating, and gets your systems onto TechShield Pro monitoring. Most onboarding completes within two weeks. Your team barely notices the transition — except that things start working better.",
+        },
+      ]}
+    />
+
+    <!-- 8. CTA -->
+    <CTA
+      heading="Let's figure out which plan fits."
+      bodyParagraphs={[
+        "Book a 30-minute meeting with Kevin. He'll ask about your business, your team size, what's driving you mad about your current IT setup (or lack of one), and he'll tell you honestly which TechShield Pro plan makes sense. If it's the £40 Sole Trader plan, he'll say so. If you don't need managed support at all and just need a one-off fix, he'll say that too.",
+        "No commitment. No jargon. No \"let me get my sales manager.\"",
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

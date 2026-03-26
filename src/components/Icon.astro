@@ -1,0 +1,32 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+  size?: string;
+  gradient?: boolean;
+}
+
+const { name, class: className = 'w-8 h-8', size, gradient = false } = Astro.props;
+
+const icons = import.meta.glob('../icons/*.svg', { query: '?raw', import: 'default', eager: true });
+const iconPath = `../icons/${name}.svg`;
+const svgRaw = icons[iconPath] as string | undefined;
+
+// Inject class and optional size into the SVG element
+let svgContent = '';
+if (svgRaw) {
+  svgContent = svgRaw
+    .replace('<svg ', `<svg class="${className}" aria-hidden="true" `)
+    .replace(/\s*version="1\.1"/, '');
+  if (size) {
+    svgContent = svgContent.replace('<svg ', `<svg width="${size}" height="${size}" `);
+  }
+  if (gradient) {
+    svgContent = svgContent
+      .replace(/fill="currentColor"/g, 'fill="url(#icon-gradient)"')
+      .replace(/stroke="currentColor"/g, 'stroke="url(#icon-gradient)"');
+  }
+}
+---
+
+{svgContent ? <Fragment set:html={svgContent} /> : <span class={className} />}

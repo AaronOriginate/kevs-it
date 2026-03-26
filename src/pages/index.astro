@@ -4,7 +4,7 @@ import Navbar from '../components/layout/Navbar.astro';
 import Hero from '../components/sections/Hero.astro';
 import FeatureStrip from '../components/sections/FeatureStrip.astro';
 import About from '../components/sections/About.astro';
-import FeatureGrid from '../components/sections/FeatureGrid.astro';
+
 import SocialProof from '../components/sections/SocialProof.astro';
 import Stats from '../components/sections/Stats.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
@@ -36,19 +36,19 @@ import Footer from '../components/layout/Footer.astro';
     <FeatureStrip
       cards={[
         {
-          icon: 'shield',
+          icon: 'helpdesk',
           title: 'TechShield Pro',
           description: 'Helpdesk support that answers on the first call, antivirus that\'s running (not just installed), backups checked every morning.',
           href: '/techshield-pro',
         },
         {
-          icon: 'lock',
+          icon: 'shield-check',
           title: 'Cyber Essentials',
           description: 'Certification that proves you take security seriously. Increasingly required for government contracts and supply chain tenders.',
           href: '/cyber-essentials',
         },
         {
-          icon: 'monitor',
+          icon: 'email-security',
           title: 'Cipher Academy',
           description: 'Phishing awareness, password hygiene, and how to spot a dodgy email before it costs you £10,000.',
           href: 'https://cipher-academy.co.uk',
@@ -56,7 +56,17 @@ import Footer from '../components/layout/Footer.astro';
       ]}
     />
 
-    <!-- 3. About Section (image + mission/vision cards) -->
+    <!-- 3. PSTN Warning Banner -->
+    <div class="mt-8">
+      <Banner
+        variant="warning"
+        dateBold="January 2027."
+        message="The UK's traditional phone network is switching off permanently. BT's PSTN shutdown affects every business still using analogue phone lines — and 82% of small businesses aren't ready."
+        cta={{ label: "Check if you're ready", href: '/telecoms' }}
+      />
+    </div>
+
+    <!-- 4. About Section (image + mission/vision cards) -->
     <About
       eyebrow="About Kevs IT"
       heading="Your trusted partner in IT support and cyber security"
@@ -75,52 +85,7 @@ import Footer from '../components/layout/Footer.astro';
       ]}
     />
 
-    <!-- 4. Services (3-column detailed cards) -->
-    <FeatureGrid
-      eyebrow="Our Services"
-      heading="Comprehensive IT solutions to protect your business"
-      subHeading="We handle your IT so you can get back to running your business. Helpdesk, security, backups, the lot. If it plugs in or connects to Wi-Fi, it's our problem now."
-      cards={[
-        {
-          icon: 'shield',
-          title: 'TechShield Pro — IT Support',
-          description: "Your IT, sorted. Helpdesk support that answers on the first call, antivirus that's running (not just installed), backups that get checked every morning. From £40/month for sole traders, £75/user/month for teams. No lock-in.",
-          features: [
-            { label: 'Helpdesk Support' },
-            { label: 'Antivirus Management' },
-            { label: 'Daily Backup Checks' },
-            { label: 'Proactive Monitoring' },
-          ],
-          cta: { label: 'See TechShield Pro plans', href: '/techshield-pro' },
-        },
-        {
-          icon: 'lock',
-          title: 'Cyber Essentials — Security Consultancy',
-          description: "43% of UK businesses got hit by a cyber breach last year. Cyber Essentials certification proves you take it seriously — and it's increasingly required for government contracts and supply chain tenders. Kevin walks you through the whole process in plain English.",
-          features: [
-            { label: 'Certification Support' },
-            { label: 'Compliance Guidance' },
-            { label: 'Plain English Reports' },
-            { label: 'Supply Chain Ready' },
-          ],
-          cta: { label: 'Learn about Cyber Essentials', href: '/cyber-essentials' },
-        },
-        {
-          icon: 'graduation',
-          title: 'Cipher Academy — Security Training',
-          description: "We don't just protect your business. We train your people. Built from Kevin's forensic computing background — the kind where you pull apart hard drives and trace how a breach happened. Because the best firewall in the world can't stop someone clicking a bad link.",
-          features: [
-            { label: 'Phishing Awareness' },
-            { label: 'Password Hygiene' },
-            { label: 'Security Culture' },
-            { label: 'Comprehensive Education' },
-          ],
-          cta: { label: 'Visit Cipher Academy', href: 'https://cipher-academy.co.uk' },
-        },
-      ]}
-    />
-
-    <!-- 5. Why Choose / Scattered Tags -->
+    <!-- 4. Why Choose / Scattered Tags -->
     <SocialProof
       eyebrow="Why Choose Kevs IT?"
       heading="Four awards in four years. CyberFirst supported. Acronis partner. Forensic computing background."
@@ -144,7 +109,7 @@ import Footer from '../components/layout/Footer.astro';
       heading="The price of winging it"
       bodyParagraphs={[
         "Nobody wakes up thinking \"today I'll lose £3,000 because the server went down.\" But that's roughly what an hour of downtime costs a small business in the UK. And it's not just the money. It's the 96 minutes your team loses every single day wrestling with IT problems that shouldn't exist. The password resets. The printer that won't connect. The email that \"just stopped working\" on a Tuesday morning.",
-        "Here's the thing. Most of this is preventable. Not with some magic box or a complicated system — just with someone who's paying attention to your IT before it breaks. Kevin spent years in forensic computing investigating what goes wrong when businesses aren't protected. After a while, he decided he'd rather stop the problems than investigate them after the fact.",
+        "Most of this is preventable. Not with some magic box or a complicated system — just with someone who's paying attention to your IT before it breaks. Kevin spent years in forensic computing investigating what goes wrong when businesses aren't protected. After a while, he decided he'd rather stop the problems than investigate them after the fact.",
         "Here's a quick test: ask anyone in your business to name three ways they keep the company cyber secure. If they can't, that's not their fault. It's a training gap. And it's fixable.",
       ]}
       stats={[
@@ -218,29 +183,29 @@ import Footer from '../components/layout/Footer.astro';
           priceSuffix: '/month',
           description: 'One-person businesses who still deserve proper IT support',
           ctaLabel: 'See full plans',
-          ctaHref: '/pricing',
+          ctaHref: '/techshield-pro',
         },
         {
           name: 'SMB',
           price: '£75/user/month',
           priceValue: 75,
           priceSuffix: '/user/month',
-          description: 'Teams of 2–30 who need someone looking after their systems every day',
+          description: 'Teams of 2–50 who need someone looking after their systems every day',
           isPopular: true,
           ctaLabel: 'See full plans',
-          ctaHref: '/pricing',
+          ctaHref: '/techshield-pro',
         },
         {
           name: 'Enterprise',
           price: '£99/user/month',
           priceValue: 99,
           priceSuffix: '/user/month',
-          description: 'Businesses with 30–50 people who need a dedicated IT partner, not a faceless helpdesk',
+          description: 'Larger teams who need a dedicated IT partner, not a faceless helpdesk',
           ctaLabel: 'See full plans',
-          ctaHref: '/pricing',
+          ctaHref: '/techshield-pro',
         },
       ]}
-      primaryCta={{ label: 'See full plans and features', href: '/pricing' }}
+      primaryCta={{ label: 'See full plans and features', href: '/techshield-pro' }}
       secondaryCta={{ label: 'Book a meeting', href: '/contact' }}
       cancellationText="Every plan comes with 30 days' cancellation notice. Not 12 months. Not 6. Thirty days. We'd rather earn your business every month than trap you in a contract."
       testimonial={{
@@ -249,15 +214,7 @@ import Footer from '../components/layout/Footer.astro';
       }}
     />
 
-    <!-- 10. PSTN Warning Banner -->
-    <Banner
-      variant="warning"
-      dateBold="January 2027."
-      message="The UK's traditional phone network is switching off permanently. BT's PSTN shutdown affects every business still using analogue phone lines — and 82% of small businesses aren't ready."
-      cta={{ label: "Check if you're ready", href: '/telecoms' }}
-    />
-
-    <!-- 11. CTA Footer -->
+    <!-- CTA Footer -->
     <CTA
       heading="Let's have a chat. No commitment, no jargon, no pressure."
       bodyParagraphs={[

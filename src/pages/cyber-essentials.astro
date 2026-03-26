@@ -1,0 +1,263 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base
+  title="Cyber Essentials Certification Bristol | Kevs IT"
+  description="Get Cyber Essentials certified with Kevin Rice. Forensic computing background, plain-English guidance, and a process that doesn't require a 200-page security manual. Bristol-based."
+>
+  <Navbar currentPage="/cyber-essentials" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="Get certified. Win government contracts. Sleep at night."
+      subHeadline="Cyber Essentials certification proves your business takes security seriously. It's increasingly required for government contracts, supply chain tenders, and insurance renewals — and Kevin walks you through the whole thing in plain English. No jargon. No 80-page security policies you'll never read. Just a clear process, guided by someone who spent his career investigating the cyber incidents that certification is designed to prevent."
+      primaryCta={{ label: 'Talk to Kevin about certification', href: '/contact' }}
+      secondaryCta={{ label: "See what's involved", href: '#process' }}
+    />
+
+    <!-- 2. Why this matters -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              This isn't a nice-to-have anymore.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              43% of UK businesses experienced a cyber breach in the last 12 months. That's not a worst-case scenario. It's nearly half. And for the businesses that got hit, the average cost wasn't trivial — it was weeks of cleanup, lost client trust, and in some cases, insurance claims that got rejected because they couldn't prove basic security controls were in place.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              But here's what's actually driving most businesses to pick up the phone. It's not the breach statistics. It's the email from their biggest client.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              48% of organisations that hold Cyber Essentials certification now require their suppliers to hold it too. Read that again. Half the certified companies in the UK are pushing the requirement down their supply chain. So even if you've never worried about a cyber attack in your life, the company that sends you 40% of your revenue might be about to make certification a condition of doing business.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Government contracts? Already there. The Ministry of Defence requires Cyber Essentials for any contract involving sensitive information. More public sector bodies are following. And the Cyber Security and Resilience Bill (expected to pass between 2026 and 2028) will bring fines of up to £17 million for non-compliance across a much wider scope of businesses. That's not a typo. Seventeen million.
+            </p>
+            <p class="text-[14px] text-text-primary leading-[1.6]">
+              This is the direction of travel. Not if, when.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. What it actually is -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            The plain-English version.
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            Cyber Essentials is a UK government-backed certification scheme. It proves your business has five basic security controls in place. That's it. Five things.
+          </p>
+          <p class="mt-4 text-[14px] text-text-primary leading-[1.6] max-w-2xl">
+            Not five hundred. Five.
+          </p>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-0">
+          {[
+            { num: '01', title: 'Firewalls', icon: 'firewall', desc: "Something between your network and the internet that stops uninvited traffic. You probably already have one. The question is whether it's configured properly." },
+            { num: '02', title: 'Secure configuration', icon: 'cogs', desc: "Your devices and software are set up with security in mind, not left on factory defaults. (You'd be surprised how many businesses are still running routers with the password \"admin.\")" },
+            { num: '03', title: 'User access control', icon: 'encryption', desc: "The right people have access to the right things, and nobody has admin privileges they don't need. Your receptionist doesn't need the same system access as your finance director." },
+            { num: '04', title: 'Malware protection', icon: 'virus-protection', desc: "Antivirus software that's actually running, actually updated, and actually being monitored. Not \"we installed it two years ago and it's probably fine.\"" },
+            { num: '05', title: 'Patch management', icon: 'software-update', desc: "Software updates applied when they're released, not six months later when Windows finally forces a restart during a client presentation." },
+          ].map((control, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 fade-up stagger-${i + 2}`}>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex-shrink-0">
+                  <Icon name={control.icon} class="w-20 h-20" gradient />
+                </div>
+                <span class="text-[13px] text-cyan">{control.num}</span>
+              </div>
+              <h3 class="text-[14px] uppercase tracking-normal text-text-primary mb-3">{control.title}</h3>
+              <p class="text-[14px] text-text-secondary leading-[1.6]">{control.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 max-w-2xl fade-up">
+          <p class="text-[14px] text-text-secondary leading-[1.6]">
+            That's the whole framework. If you're already running a reasonably modern business with halfway decent IT, you're probably closer than you think. The certification process is about documenting what you do, identifying the gaps, and closing them before assessment.
+          </p>
+          <p class="mt-4 text-[14px] text-text-secondary leading-[1.6]">
+            There are two levels. <strong class="text-text-primary font-normal">Cyber Essentials</strong> is the baseline — a self-assessment questionnaire verified by an external body. <strong class="text-text-primary font-normal">Cyber Essentials Plus</strong> adds hands-on technical testing of your systems. Most businesses start with the baseline and upgrade later.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Kevin's approach -->
+    <section class="relative py-20 lg:py-28" id="process">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Guided by someone who's seen what happens when it goes wrong.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Kevin didn't learn about cyber security from a textbook. Well, he did — forensic computing at UWE Bristol — but then he spent years doing the bit they don't teach in the classroom. Investigating actual incidents. Pulling apart compromised systems. Tracing how breaches happened, who got in, and what they took.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              He's seen the spreadsheet with 4,000 customer records end up on a forum in Eastern Europe because someone used "Bristol2019" as a password. He's seen a business lose a £180,000 contract because they couldn't demonstrate basic security controls to a government assessor. And he's seen the look on a managing director's face when they realise their "IT guy" hadn't actually been running backups for seven months.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              That's the background Kevin brings to Cyber Essentials consultancy. Not just "here's a checklist, fill it in." But: here's what actually matters, here's what the assessors look for, here's where businesses your size typically trip up, and here's how we fix it before it becomes a problem.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 space-y-0">
+          {[
+            { step: '01', title: 'Initial chat', desc: "Kevin talks through your current setup. No charge, no commitment. He'll tell you honestly how close (or far) you are from certification." },
+            { step: '02', title: 'Gap assessment', desc: 'A proper look at your five controls against the Cyber Essentials requirements. Kevin identifies what\'s missing and what needs fixing.' },
+            { step: '03', title: 'Remediation guidance', desc: "Plain-English recommendations. Not a 40-page PDF full of technical jargon. Specific actions, prioritised by risk. If something needs buying, Kevin tells you the cost upfront." },
+            { step: '04', title: 'Assessment preparation', desc: "Kevin walks you through the self-assessment questionnaire, making sure your answers are accurate and complete. No trick questions — but some of them are surprisingly easy to get wrong." },
+            { step: '05', title: 'Certification support', desc: "You submit your assessment to the certification body. Kevin's there if they come back with questions." },
+          ].map((item, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 lg:p-10 grid md:grid-cols-[80px_1fr] gap-6 fade-up stagger-${i + 2}`}>
+              <span class="text-[48px] text-cyan/30 font-normal leading-[1]">{item.step}</span>
+              <div>
+                <h3 class="text-[14px] uppercase tracking-normal text-text-primary mb-2">{item.title}</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6]">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Who needs this -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Is this actually for you?
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Honestly? Not every business needs Cyber Essentials right now. If you're a sole trader with no employees, no sensitive client data, and no plans to bid for government work, it might not be your priority this quarter. Kevin will tell you that.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              But you probably need it sooner than you think if:
+            </p>
+            <ul class="space-y-4">
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                <strong class="text-text-primary font-normal">You bid on government contracts.</strong> Many already require Cyber Essentials as a minimum. The scope is widening every year.
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                <strong class="text-text-primary font-normal">Your clients are asking for it.</strong> That 48% cascade effect is real. If your biggest client gets certified, there's a decent chance they'll expect you to follow.
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                <strong class="text-text-primary font-normal">You handle personal data.</strong> Customer records, employee data, financial information. GDPR already requires "appropriate technical measures." Cyber Essentials is the closest thing to a government-approved checklist of what that means.
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                <strong class="text-text-primary font-normal">You want cyber insurance that actually pays out.</strong> Insurers are getting stricter about what they'll cover. Cyber Essentials certification is increasingly the baseline they expect before they'll honour a claim.
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                <strong class="text-text-primary font-normal">The Cyber Security and Resilience Bill worries you.</strong> It should, a bit. Fines up to £17 million and a much broader scope than current regulations. The timeline is 2026–2028, which sounds like plenty of time until you realise certification takes weeks, not days.
+              </li>
+            </ul>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              And then there's the thing nobody talks about. Getting certified makes you think differently about security. It stops being abstract. The five controls become habits. Your team starts noticing suspicious emails instead of clicking them. It's not just a certificate on the wall — it changes behaviour. Kevin's seen it happen with every business he's guided through the process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Forensic computing difference -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              He didn't just study for a certificate. He investigated real cyber incidents.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Most IT consultants who offer Cyber Essentials guidance learned about security from the same courses everyone else took. CompTIA Security+. CISSP. Valid credentials, genuinely useful. But they're classroom knowledge about threats that happen to other people.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Kevin studied forensic computing at UWE Bristol. That's the discipline where you examine compromised systems under controlled conditions, preserve digital evidence chains, and figure out exactly how an attacker got in, what they accessed, and how to prove it in a way that holds up legally. It's the CSI of the IT world, except less dramatic lighting and more staring at log files at midnight.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              After university, Kevin didn't go straight into IT support. He built his career around understanding what goes wrong. That's what makes his Cyber Essentials consultancy different from someone reading off a template — he knows what the attackers actually do, because he's spent years examining the evidence they leave behind.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Four industry awards since 2021 (Bristol Business Award Winner 2024, Global Business Awards 2024 and 2022, UK Enterprise Awards 2021). CyberFirst Supported by the National Cyber Security Centre. And every client still calls him Kevin, because that's the kind of business this is.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <FAQ
+      eyebrow="FAQ"
+      heading="Frequently asked questions"
+      items={[
+        {
+          question: 'How long does certification take?',
+          answer: "From first conversation to certificate, most businesses complete the process in 4–8 weeks. The timeline depends on how much remediation you need. If your IT is already in decent shape, it could be faster. If Kevin finds significant gaps, he'll be honest about the work involved before you commit.",
+        },
+        {
+          question: 'How much does it cost?',
+          answer: "Kevin's consultancy fees depend on the size and complexity of your business. The certification itself costs between £300 and £500 depending on the assessment body and your company size. Kevin will give you a clear, fixed quote for his consultancy work before you start — no open-ended hourly billing that spirals. Book a chat and he'll give you a number.",
+        },
+        {
+          question: "What's the difference between Cyber Essentials and Cyber Essentials Plus?",
+          answer: "Cyber Essentials is a self-assessment questionnaire verified by an external assessor. It proves you have the five controls in place based on your own answers. Cyber Essentials Plus includes hands-on technical testing — an assessor actually pokes around your systems to verify the controls work in practice, not just on paper. Most businesses start with the baseline. Kevin can help you decide which level makes sense.",
+        },
+        {
+          question: 'Do I need to change my IT provider to work with Kevin on this?',
+          answer: "No. Kevin can guide you through Cyber Essentials regardless of who manages your day-to-day IT. That said, if your current provider is the reason you'd fail the assessment (outdated antivirus, no backup monitoring, passwords on sticky notes), Kevin will tell you that too. If you're a TechShield Pro Enterprise client, Cyber Essentials preparation is already included in your plan.",
+        },
+        {
+          question: 'Will this disrupt my business?',
+          answer: "The assessment process is mostly paperwork and configuration checks. Kevin does the heavy lifting. Your team might need to change a few passwords, accept some software updates, or stop using \"Company123\" as the Wi-Fi password. But there's no downtime involved. The most disruptive part is usually the initial gap assessment, and even that takes a couple of hours, not days.",
+        },
+        {
+          question: "What happens after we're certified?",
+          answer: "Certification lasts 12 months. You'll need to recertify annually, which is simpler the second time because you've already built the habits. Kevin can handle your renewal or just check in before the anniversary to make sure nothing's drifted. Some clients roll this into their TechShield Pro support plan.",
+        },
+        {
+          question: 'Is Cyber Essentials the same as ISO 27001?',
+          answer: "No — and the difference matters. Cyber Essentials covers five specific technical controls. ISO 27001 is a full information security management system covering policies, procedures, risk assessments, and ongoing audits. Think of Cyber Essentials as the foundation and ISO 27001 as the full build. Most small businesses start with Cyber Essentials. If you need ISO 27001, Kevin can point you in the right direction, but it's a different scale of project.",
+        },
+      ]}
+    />
+
+    <!-- 8. CTA -->
+    <CTA
+      heading="Stop putting this off."
+      bodyParagraphs={[
+        "You've been meaning to look into Cyber Essentials for months. Maybe years. It keeps getting bumped to next quarter because it sounds complicated and nobody's forcing the issue yet.",
+        "Kevin's had that conversation dozens of times. This is what he'll tell you: it's not as complicated as you think, it doesn't take as long as you fear, and the businesses that certify always wish they'd done it sooner. Not because of the certificate itself — because of the clarity it brings.",
+        "Book a 30-minute call. Kevin will tell you honestly where you stand, what it would take, and whether now is actually the right time. If it's not, he'll say so. But if you're losing contracts or sleep over this? Let's sort it.",
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

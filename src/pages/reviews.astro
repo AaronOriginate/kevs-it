@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<Base
+  title="What Our Clients Say | Kevs IT — Bristol IT Support Reviews"
+  description="Real reviews from Bristol businesses who switched to Kevs IT. Read what Maria, Catherine, and Michele have to say about Kevin's IT support."
+>
+  <Navbar currentPage="/reviews" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="Don't take our word for it."
+      subHeadline="We could tell you Kevin's brilliant. (We think he is.) But you've heard that from every IT company in Bristol. So here's what our clients say instead."
+    />
+
+    <!-- 2. Featured review -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up text-center max-w-3xl mx-auto">
+          <blockquote>
+            <p class="text-[clamp(1.5rem,3vw,48px)] leading-[1.15] tracking-[-0.02em] font-normal italic text-text-primary">
+              "I believe everyone needs a Kevin!"
+            </p>
+            <footer class="mt-6 text-[14px] text-cyan">
+              &mdash; Maria, MCF Business Solutions
+            </footer>
+          </blockquote>
+          <p class="mt-8 text-[14px] text-text-secondary leading-[1.6] max-w-xl mx-auto">
+            That's not a tagline we wrote. Maria did. And honestly? It says more about how Kevin works than anything on our homepage ever could. When your clients start writing your marketing copy for you, you're doing something right.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Client stories -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            What switching actually looks like
+          </h2>
+        </div>
+
+        <div class="mt-14 space-y-0">
+          <!-- Catherine -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-2">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16">
+              <div>
+                <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Catherine Collar — The Switch</h3>
+                <blockquote class="border-l-2 border-cyan pl-6">
+                  <p class="text-[16px] text-text-primary italic leading-[1.5]">"The onboarding service was faultless, smooth and efficient. I wouldn't hesitate to recommend Kevs IT to anyone looking to switch providers."</p>
+                </blockquote>
+              </div>
+              <div>
+                <p class="text-[13px] uppercase tracking-normal text-text-muted mb-3">Our take</p>
+                <p class="text-[14px] text-text-secondary leading-[1.6]">
+                  Changing IT providers feels like changing your accountant mid-tax-season. Catherine was with another provider. She made the move. And "faultless" was her word, not ours. The whole transition took days. Not weeks, not months. Days. If you're sitting there thinking "I know my current provider isn't great, but switching sounds like a nightmare" — Catherine felt exactly the same way. Then she did it.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Michele -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-3">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16">
+              <div>
+                <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Michele Smith — The Response</h3>
+                <blockquote class="border-l-2 border-cyan pl-6">
+                  <p class="text-[16px] text-text-primary italic leading-[1.5]">"Within hours he had set up a Zoom meeting and talked me through everything."</p>
+                </blockquote>
+              </div>
+              <div>
+                <p class="text-[13px] uppercase tracking-normal text-text-muted mb-3">Our take</p>
+                <p class="text-[14px] text-text-secondary leading-[1.6]">
+                  Hours. Not "we aim to respond within 2 business days." Not an auto-reply promising someone will "get back to you shortly." Michele had a problem, Kevin was on a Zoom call walking her through the fix that same afternoon. That's what IT support should feel like — but if you've been with a bigger provider, you'll know it almost never does.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Placeholder -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-4">
+            <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Your review could go here</h3>
+            <p class="text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+              We've got 4 client reviews right now. Inflection Point down the road has 116 on Trustpilot. We're not pretending the numbers are even close. But read the words above. Read how people talk about Kevin — by name, not as "the company" or "the support team." That's not something you can manufacture with a review collection campaign. (Although we are asking more clients to share their experience, because the ones who do always seem surprised we don't have more.)
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Trustpilot -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up max-w-2xl">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+            Find us on Trustpilot
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6]">
+            We're building our Trustpilot presence. One review at a time. If you're a Kevs IT client and you've got 90 seconds, we'd genuinely appreciate you leaving an honest review. Good, bad, or somewhere in between — it all helps other businesses make a decision they can feel confident about.
+          </p>
+
+          <!-- Trustpilot embed placeholder -->
+          <div class="mt-8 bg-card-surface border border-border-subtle p-8 text-center">
+            <p class="text-[13px] text-text-muted uppercase tracking-normal">Trustpilot Reviews</p>
+            <p class="mt-2 text-[14px] text-text-secondary">Widget embed area</p>
+          </div>
+
+          <a
+            href="https://trustpilot.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200"
+          >
+            Leave a Trustpilot review
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Google reviews -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up max-w-2xl">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+            Or leave a Google review
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6]">
+            If Trustpilot isn't your thing, Google works too. A Google review helps other Bristol businesses find us when they're searching for IT support locally. Takes about 60 seconds. And yes, Kevin reads every single one.
+          </p>
+          <a
+            href="https://google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200"
+          >
+            Leave a Google review
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <CTA
+      heading="Ready to see what the fuss is about?"
+      bodyParagraphs={[
+        "Book a 30-minute chat with Kevin. A cup of coffee (virtual or otherwise) and an honest conversation about what's not working with your current IT setup — and whether Kevin can fix it.",
+        "And if he can't? He'll say so. Probably recommend someone who can. (It's happened before. He'd rather you get the right fit than sign up for the wrong one.)",
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

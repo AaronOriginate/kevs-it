@@ -1,28 +1,8 @@
 @import "tailwindcss";
 
 /* ========================================
-   FONTS — Google Fonts: Cousine (monospace)
-   We use Cousine for everything to match Sentrisec.
-   JetBrains Mono kept as fallback mono.
+   FONTS — Self-hosted. All @font-face in Base.astro for base URL support.
    ======================================== */
-
-@font-face {
-  font-family: 'Cousine';
-  src: url('https://fonts.gstatic.com/s/cousine/v27/d6lIkaiiRdih4SpPzSMlzTbGkQ.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cousine';
-  src: url('https://fonts.gstatic.com/s/cousine/v27/d6lNkaiiRdih4SpP9Z8K6T7G0dWM.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-
-/* Font faces are loaded in Base.astro for base URL support */
 
 /* ========================================
    DESIGN TOKENS — Tailwind v4 Theme

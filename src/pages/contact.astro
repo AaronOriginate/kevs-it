@@ -1,0 +1,166 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<Base
+  title="Book a Free Meeting | Kevs IT — Bristol IT Support"
+  description="Book a free 30-minute meeting with Kevin Rice. No commitment, no jargon, no pressure. Phone, email, WhatsApp, or calendar — however you prefer to start a conversation."
+>
+  <Navbar currentPage="/contact" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="Let's have a conversation."
+      subHeadline="Not a sales call. Not a demo. Just a chat about what's going on with your IT and whether Kevin can help. 30 minutes, no commitment."
+      primaryCta={{ label: 'Book a meeting below', href: '#booking' }}
+    />
+
+    <!-- 2. Booking form -->
+    <section class="relative py-20 lg:py-28" id="booking">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="max-w-2xl fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+            Pick a time that works for you
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6]">
+            Kevin uses HubSpot for scheduling. Choose a 30-minute slot and you'll get a confirmation email with a Zoom link. Prefer to meet in person? Just mention it in the notes and he'll sort something at his Bristol office.
+          </p>
+        </div>
+
+        <!-- HubSpot embed placeholder -->
+        <div class="mt-10 bg-card-surface border border-border-subtle p-12 text-center fade-up stagger-2">
+          <p class="text-[13px] text-text-muted uppercase tracking-normal">HubSpot Calendar</p>
+          <p class="mt-2 text-[14px] text-text-secondary">Booking widget embed area</p>
+        </div>
+
+        <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl fade-up stagger-3">
+          Can't find a time that works? That happens. Drop Kevin an email or send a WhatsApp message and he'll find something that fits.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Contact methods -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            Not everyone's a calendar person.
+          </h2>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 gap-0">
+          <!-- Call -->
+          <div class="bg-card-surface border border-border-subtle p-8 fade-up stagger-2">
+            <div class="mb-6">
+              <Icon name="phone" class="w-20 h-20" gradient />
+            </div>
+            <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">Call Kevin</h3>
+            <a href="tel:+441170000000" class="text-[14px] text-text-primary hover:text-cyan transition-colors">0117 000 0000</a>
+            <p class="mt-3 text-[14px] text-text-secondary leading-[1.6]">
+              He picks up. That sounds like a small thing, but how many IT providers can you say that about? If he's on another call, you'll hear back within 2 hours. Usually much faster.
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div class="bg-card-surface border border-border-subtle p-8 fade-up stagger-3">
+            <div class="mb-6">
+              <Icon name="email" class="w-20 h-20" gradient />
+            </div>
+            <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">Send an email</h3>
+            <a href="mailto:contact@kevsit.co.uk" class="text-[14px] text-text-primary hover:text-cyan transition-colors">contact@kevsit.co.uk</a>
+            <p class="mt-3 text-[14px] text-text-secondary leading-[1.6]">
+              Good for anything that doesn't need an immediate answer. Quotes, general questions, "I'm not sure what I need but something's not right." All fine.
+            </p>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="bg-card-surface border border-border-subtle p-8 fade-up stagger-4">
+            <div class="mb-6">
+              <Icon name="whatsapp" class="w-20 h-20" gradient />
+            </div>
+            <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">WhatsApp</h3>
+            <a href="https://wa.me/441170000000" target="_blank" rel="noopener noreferrer" class="text-[14px] text-text-primary hover:text-cyan transition-colors">Message Kev on WhatsApp</a>
+            <p class="mt-3 text-[14px] text-text-secondary leading-[1.6]">
+              Quick questions, screenshots of error messages, a "can you take a look at this?" on a Thursday afternoon. Sometimes the fastest way to get something sorted.
+            </p>
+          </div>
+
+          <!-- Visit -->
+          <div class="bg-card-surface border border-border-subtle p-8 fade-up stagger-5">
+            <div class="mb-6">
+              <Icon name="location" class="w-20 h-20" gradient />
+            </div>
+            <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">Visit</h3>
+            <p class="text-[14px] text-text-primary">Bristol, UK</p>
+            <p class="mt-3 text-[14px] text-text-secondary leading-[1.6]">
+              Kevin works with businesses across the Bristol area and the wider South West. Most meetings happen over Zoom, but if you'd rather meet face to face, that works too.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Reassurance -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              What to expect
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Here's what won't happen on the call. Kevin won't read from a script. He won't push you into a package you don't need. He won't use words like "synergy" or "digital transformation" or pretend that IT support is more complicated than it needs to be.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Here's what will happen. He'll ask about your business, how many people you've got, what's causing you grief with technology, and what you're trying to achieve. Then he'll give you an honest opinion. Sometimes that's "you need TechShield Pro." Sometimes it's "you actually just need better Wi-Fi and a decent backup." And sometimes it's "I'm not the right fit for this, but I know someone who is."
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              30 days' cancellation on every plan. That's not buried in the small print. It's the whole philosophy. We'd rather earn your business every month than hold you to a contract you resent. Michele Smith called about a problem and had a Zoom meeting set up that same afternoon. Maria from MCF Business Solutions wrote "I believe everyone needs a Kevin!" in a review. That's what the first conversation leads to.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              You don't need to prepare anything for the meeting. Just show up and talk. Kevin's been doing this for 14 years. He's heard every IT horror story going. Yours won't surprise him. (It might make him wince, though.)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FAQ -->
+    <FAQ
+      eyebrow="FAQ"
+      heading="Before you book"
+      items={[
+        {
+          question: 'Is it actually free?',
+          answer: "Yes. 30 minutes, no charge, no obligation. If Kevin can help, he'll explain how. If he can't, he'll say so.",
+        },
+        {
+          question: 'How quickly can you start?',
+          answer: "Depends on what you need. A Cyber Essentials consultation can start the same week. Full TechShield Pro onboarding for a team of 15 takes a bit longer, but a full provider switch typically happens in days with Kevin. Not the months you might expect.",
+        },
+        {
+          question: 'Do I need to know what service I want?',
+          answer: "No. Most people who book a meeting don't. They know something's wrong with their IT. Kevin works out what's actually needed. That's literally his job.",
+        },
+        {
+          question: "What if I'm already with another provider?",
+          answer: "That's fine. Kevin's used to helping businesses switch. 30 days' notice on your current contract (check your terms), and he handles the transition. No drama.",
+        },
+        {
+          question: 'Where are you based?',
+          answer: "Bristol. Kevin works with businesses across the city and the South West. Most meetings are on Zoom, but in-person works too if you're local.",
+        },
+      ]}
+    />
+  </main>
+
+  <Footer />
+</Base>

@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base
+  title="Business Hardware & IT Equipment | Kevs IT Bristol"
+  description="Business laptops, desktops, and networking equipment sourced and configured by Kevs IT. Not just boxes — hardware set up for your specific systems."
+>
+  <Navbar currentPage="/shop" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="Need hardware? We don't just sell boxes."
+      subHeadline="Business laptops, desktops, networking gear, and peripherals — sourced by Kevin's team and configured for your setup before they arrive. One less thing to figure out yourself."
+    />
+
+    <!-- 2. Product categories -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            What you'll find
+          </h2>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 gap-0">
+          {[
+            {
+              title: 'Business laptops',
+              icon: 'laptop',
+              desc: "Dell, Lenovo, HP — the brands that don't fall apart after 18 months. Specced for what you actually do, not what looks good on a shelf. Whether it's a single laptop for a new starter or a fleet refresh for a team of 30, we'll match the hardware to the workload.",
+            },
+            {
+              title: 'Desktops & workstations',
+              icon: 'server',
+              desc: "For offices that still need something under the desk. (Plenty do, and there's nothing wrong with that.) Configured with the right specs for your software, your network, and your budget.",
+            },
+            {
+              title: 'Networking equipment',
+              icon: 'network',
+              desc: "Routers, switches, access points, firewalls. The invisible stuff that keeps everything connected. We supply Ubiquiti, Draytek, and other business-grade kit — not the consumer-grade router your broadband provider gave you for free in 2019.",
+            },
+            {
+              title: 'Peripherals & accessories',
+              icon: 'cloud',
+              desc: "Monitors, keyboards, docking stations, webcams, headsets. The bits that make the actual workday bearable. We stock what works and what lasts. No, we won't sell you a gaming keyboard for your reception desk.",
+            },
+          ].map((card, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 fade-up stagger-${i + 2}`}>
+              <div class="mb-5">
+                <Icon name={card.icon} class="w-20 h-20" gradient />
+              </div>
+              <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">{card.title}</h3>
+              <p class="text-[14px] text-text-secondary leading-[1.6]">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Why buy through Kevin -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Why not just order from Amazon?
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              You could. Plenty of people do. But this is what happens next.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              The laptop arrives. Nobody's configured it. Your new starter spends their first morning watching a progress bar while Windows updates itself 4 times. The antivirus isn't installed. The email isn't set up. The VPN doesn't connect. And now you're calling your IT provider to sort out a machine they had nothing to do with choosing.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              When you buy through Kevs IT, the hardware arrives ready. Configured for your network. Your security tools already installed. Your user accounts set up. Your new starter opens the lid and gets to work. That's it.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Three reasons it's worth the extra 10 minutes to order through us instead of a marketplace:
+            </p>
+
+            <div class="space-y-6 mt-2">
+              <div class="pl-4 border-l-2 border-cyan/30">
+                <p class="text-[14px] text-text-primary leading-[1.6]"><strong class="font-normal">1. It's configured before it ships.</strong></p>
+                <p class="mt-1 text-[14px] text-text-secondary leading-[1.6]">Not factory-default configured. Configured for your specific setup — your domain, your antivirus, your backup software, your email. Kevin's team handles this before the hardware reaches your desk.</p>
+              </div>
+              <div class="pl-4 border-l-2 border-cyan/30">
+                <p class="text-[14px] text-text-primary leading-[1.6]"><strong class="font-normal">2. Everything's compatible.</strong></p>
+                <p class="mt-1 text-[14px] text-text-secondary leading-[1.6]">We know what you're already running. We won't sell you a laptop that can't talk to your printer, or a switch that doesn't play well with your existing network. Sounds obvious. Ask anyone who's bought IT equipment without checking.</p>
+              </div>
+              <div class="pl-4 border-l-2 border-cyan/30">
+                <p class="text-[14px] text-text-primary leading-[1.6]"><strong class="font-normal">3. One point of contact.</strong></p>
+                <p class="mt-1 text-[14px] text-text-secondary leading-[1.6]">Hardware problem? Call Kevin. Software problem? Call Kevin. Something went wrong during setup? Same number. No finger-pointing between your hardware supplier, your software vendor, and your IT support company. It's all us.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Shop CTA -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up max-w-2xl">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+            Browse the shop
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6]">
+            Our hardware shop lives at shop.kevsit.co.uk. You'll see a security verification page when you first visit — that's our Cloudflare protection keeping the site safe. Takes about 2 seconds, then you're in.
+          </p>
+          <p class="mt-4 text-[14px] text-text-secondary leading-[1.6]">
+            Browse what's available, or get in touch and we'll put together a quote based on exactly what you need.
+          </p>
+          <a
+            href="https://shop.kevsit.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan btn-glow"
+          >
+            Visit the Hardware Shop
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Secondary CTA -->
+    <CTA
+      heading="Not sure what you need?"
+      bodyParagraphs={[
+        "Most business owners aren't hardware experts. (Why would you be? You've got a business to run.) Book a quick meeting with Kevin and we'll spec out exactly what you need — brand, model, configuration, budget. No obligation to buy through us afterwards, though most people do once they see the difference between \"a laptop\" and \"your laptop, ready to go.\"",
+      ]}
+      primaryCta={{ label: 'Book a meeting', href: '/contact' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

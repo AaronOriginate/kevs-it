@@ -1,0 +1,66 @@
+---
+interface Props {
+  headline: string;
+  subHeadline: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  image?: { src: string; alt: string };
+}
+
+const { headline, subHeadline, primaryCta, secondaryCta, image } = Astro.props;
+---
+
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden" aria-label="Hero">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/2 right-[20%] -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-cyan/[0.04] blur-[120px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-10">
+    <div class={image ? 'grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center' : ''}>
+      <div class={image ? '' : 'max-w-3xl'}>
+        <h1 class="text-[clamp(2rem,4.5vw,64px)] leading-[1] tracking-[-0.03em] font-normal fade-up hero-gradient-text" style="text-transform: uppercase;">
+          {headline}
+        </h1>
+
+        <p class="mt-8 text-[14px] text-text-secondary leading-[1.6] max-w-[600px] fade-up stagger-2">
+          {subHeadline}
+        </p>
+
+        {(primaryCta || secondaryCta) && (
+          <div class="mt-10 flex flex-wrap gap-4 fade-up stagger-3">
+            {primaryCta && (
+              <a
+                href={primaryCta.href}
+                class="inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200 border border-cyan btn-glow"
+              >
+                {primaryCta.label}
+              </a>
+            )}
+            {secondaryCta && (
+              <a
+                href={secondaryCta.href}
+                class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-secondary text-[16px] uppercase tracking-normal border border-border-subtle hover:border-text-secondary hover:text-text-primary transition-all duration-200"
+              >
+                {secondaryCta.label}
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+
+      {image && (
+        <div class="hidden lg:block fade-up stagger-3">
+          <div class="relative">
+            <div class="absolute -inset-4 border border-cyan/10"></div>
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full aspect-[4/3] object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

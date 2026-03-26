@@ -1,0 +1,194 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
+import CTA from '../components/sections/CTA.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<Base
+  title="IT Support, Cyber Security & Training | Kevs IT Bristol"
+  description="IT support from £40/month, Cyber Essentials certification, cybersecurity training, telecoms, and hardware for Bristol businesses. Five services. One person you'll actually know by name."
+>
+  <Navbar currentPage="/services" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="What do you actually need help with?"
+      subHeadline="IT support, cyber security, training, telecoms, hardware. Five services, all under one roof, all managed by Kevin and his team in Bristol. Pick the one that fits, or scroll down and we'll help you figure it out."
+      primaryCta={{ label: "Not sure? Book a chat with Kevin", href: '/contact' }}
+    />
+
+    <!-- 2. Service cards -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-3xl">
+            Everything your business needs. Nothing it doesn't.
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            Each service works on its own. But they're better together. A business with IT support, proper security, and trained staff doesn't just survive. It runs properly. This is what we offer.
+          </p>
+        </div>
+
+        <div class="mt-14 space-y-0">
+          <!-- TechShield Pro -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-2 card-hover">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <div>
+                <div class="mb-6">
+                  <Icon name="helpdesk" class="w-20 h-20" gradient />
+                </div>
+                <h3 class="text-[24px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">TechShield Pro — IT Support</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Your IT. Sorted. TechShield Pro covers helpdesk support, antivirus, backups, email, and the endless small fires that eat into your working day. Starting at £40/month for sole traders, £75/user/month for teams up to 30, and £99/user/month for businesses that need the full package.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  That £40/month sole trader tier? Almost nobody else offers it. Dial A Geek requires 20 users minimum. Chorus won't talk to you below 30. Kevin built TechShield Pro because one-person businesses deserve proper IT support too, not a watered-down version of an enterprise product.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6]">
+                  30-day cancellation. No lock-in. You stay because it works, not because you're stuck.
+                </p>
+              </div>
+              <a href="/techshield-pro" class="inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200 whitespace-nowrap">
+                See TechShield Pro plans
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Cyber Essentials -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-3 card-hover">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <div>
+                <div class="mb-6">
+                  <Icon name="shield-check" class="w-20 h-20" gradient />
+                </div>
+                <h3 class="text-[24px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Cyber Essentials — Security Consultancy</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Get certified. Win government contracts. Sleep at night.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Cyber Essentials certification isn't optional any more. 48% of certified organisations now require their suppliers to hold it too, which means one client's procurement policy can suddenly make it your problem. And government contracts? They've required Cyber Essentials since 2014.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Kevin doesn't hand you a 40-page compliance document and wish you luck. He walks you through the entire process in plain English. What needs fixing, how to fix it, and what to say in the assessment. His forensic computing background means he's not reading from a textbook. He investigated real cyber incidents at UWE Bristol before he started helping businesses prevent them.
+                </p>
+              </div>
+              <a href="/cyber-essentials" class="inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200 whitespace-nowrap">
+                Learn about Cyber Essentials
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Cipher Academy -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-4 card-hover">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <div>
+                <div class="mb-6">
+                  <Icon name="email-security" class="w-20 h-20" gradient />
+                </div>
+                <h3 class="text-[24px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Cipher Academy — Cybersecurity Training</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Something Kevin genuinely believes: anyone in your business should be able to name three ways they keep the company cyber secure. Can yours?
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Cipher Academy is a standalone cybersecurity training platform. Not a bolt-on webinar. Not a PDF someone skims and forgets. Actual training your whole team can understand, covering phishing awareness, password hygiene, and how to spot a dodgy email before it costs you £10,000. (The best firewall in the world can't stop someone clicking a bad link.)
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  No other Bristol IT provider has a dedicated training platform. Most offer "security awareness" as a bullet point on a features list. Kevin built an entire business around it. That's the difference between saying you care about training and proving it.
+                </p>
+              </div>
+              <a href="https://cipher-academy.co.uk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200 whitespace-nowrap">
+                Visit Cipher Academy
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Telecoms -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-5 card-hover">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <div>
+                <div class="mb-6">
+                  <Icon name="smartphone" class="w-20 h-20" gradient />
+                </div>
+                <h3 class="text-[24px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Switchover Ready — Telecoms</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  <strong class="text-amber font-normal">January 2027.</strong> Your phone lines are switching off. BT's PSTN shutdown is permanent, and 82% of small businesses aren't ready.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  If your phones ring through a traditional landline, your broadband comes through a phone socket, or you've got a fax machine that still works (yes, really), this affects you. It's not a distant problem. It's ten months away.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Kevin helps Bristol businesses audit what they've got, figure out what needs changing, and switch to modern telecoms before the deadline. No panic, no overselling. Just getting you sorted before January hits.
+                </p>
+              </div>
+              <a href="/telecoms" class="inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200 whitespace-nowrap">
+                Check if you're ready
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Hardware -->
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-12 fade-up stagger-6 card-hover">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <div>
+                <div class="mb-6">
+                  <Icon name="laptop" class="w-20 h-20" gradient />
+                </div>
+                <h3 class="text-[24px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Hardware & Repairs</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Business laptops, desktops, and networking gear. Sourced, configured, and delivered ready to use.
+                </p>
+                <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+                  Kevin doesn't sell consumer kit from a catalogue. He matches hardware to what your business actually needs, configures it with your security policies, and sets it up so your team can start working the day it arrives. Need a replacement fast because something died on a Wednesday afternoon? That's the kind of call he's used to.
+                </p>
+              </div>
+              <a href="/shop" class="inline-flex items-center gap-2 text-[14px] uppercase text-cyan hover:gap-3 transition-all duration-200 whitespace-nowrap">
+                Browse the shop
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Not sure CTA -->
+    <CTA
+      heading="Not sure where to start?"
+      bodyParagraphs={[
+        "Most people who call Kevin don't arrive with a neat list of requirements. They arrive with a feeling. Something like \"our IT is a mess and I don't know what to do about it.\" That's fine. Genuinely.",
+        "Book a 30-minute meeting. Kevin will ask about your setup, what's causing you grief, and what you're trying to do. Then he'll tell you what he thinks you need. Sometimes it's TechShield Pro. Sometimes it's just a hardware upgrade and better backups. Sometimes it's a conversation about Cyber Essentials because a client is asking for it. He won't sell you things you don't need. Michele Smith called about a problem and had a Zoom meeting set up that same afternoon. That's the pace.",
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+    />
+
+    <!-- 4. Credentials -->
+    <SocialProof
+      eyebrow="Credentials"
+      heading="Backed by more than words"
+      credentials={[
+        { type: 'award', label: 'Bristol Business Award 2024' },
+        { type: 'award', label: 'Global Business Awards 2024' },
+        { type: 'award', label: 'Global Business Awards 2022' },
+        { type: 'award', label: 'UK Enterprise Awards 2021' },
+        { type: 'certification', label: 'CyberFirst Supported' },
+        { type: 'partnership', label: 'Acronis Partner' },
+        { type: 'education', label: 'UWE Bristol — Forensic Computing' },
+      ]}
+      postCredentialsText="Four industry awards since 2021. CyberFirst Supported status from the National Cyber Security Centre. An Acronis partnership that brings enterprise-grade backup technology to businesses a fraction of enterprise size. And a forensic computing degree from UWE Bristol that most IT providers couldn't get if they tried."
+      primaryCta={{ label: 'Book a meeting', href: '/contact' }}
+      secondaryCta={{ label: 'About Kevin', href: '/about' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

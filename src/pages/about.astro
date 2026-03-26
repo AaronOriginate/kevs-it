@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<Base
+  title="About Kevin Rice | Kevs IT — Bristol IT Support"
+  description="Kevin Rice studied forensic computing at UWE Bristol, spent years investigating cyber incidents, then built an IT support company for Bristol businesses with 1-50 people. Here's why."
+>
+  <Navbar currentPage="/about" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="I'm Kevin. I look after your IT so you don't have to."
+      subHeadline="Forensic computing graduate. 14 years in the industry. Four awards since 2021. And yes, I still pick up the phone myself."
+      primaryCta={{ label: 'Book a chat with Kevin', href: '/contact' }}
+      secondaryCta={{ label: 'See what we do', href: '/services' }}
+    />
+
+    <!-- 2. The short version -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              The short version
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              I studied forensic computing at UWE Bristol. That's the degree where you learn to pull apart hard drives, trace how a cyber breach happened, figure out who did it, and build a chain of evidence that holds up in court. Most of my classmates went into law enforcement or government intelligence work. I went into IT support.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Weird choice? Maybe. But here's what years of investigating cyber incidents taught me: almost every breach I looked at was preventable. Not with expensive software or some complicated security system. With basics. Proper backups. Decent passwords. A team that knows what a phishing email looks like before they click it.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              That got under my skin. I kept seeing the same patterns — small businesses hit hardest because nobody had shown them what "good" looked like. The big IT companies didn't want their business (too small, not profitable enough). And the smaller providers they could afford? Half the time they weren't picking up the phone.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              So I built Kevs IT. Started from my desk in Bristol with a laptop and a phone. That was over 14 years ago.
+            </p>
+            <blockquote class="border-l-2 border-cyan pl-6 mt-8">
+              <p class="text-[16px] text-text-primary italic">"I believe everyone needs a Kevin!"</p>
+              <footer class="mt-2 text-[13px] text-text-muted">&mdash; Maria, MCF Business Solutions</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Forensic computing -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              What forensic computing actually means for you
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              People ask about this a lot at networking events. "What's forensic computing got to do with fixing my email?"
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Fair question. The honest answer?
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              When you've spent years investigating breaches after they've happened — tracing the entry point, documenting the damage, watching businesses lose data they'll never get back — you develop a very specific kind of paranoia. The good kind. You stop thinking about IT as "making things work" and start thinking about it as "making sure things can't break in the ways I've already seen break."
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              That's not something you get from a certification course over a weekend. It's thousands of hours looking at what went wrong and understanding why. Every backup strategy I set up, every security protocol, every Cipher Academy training session I've built comes from real incidents I've investigated. Not theoretical ones.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Does that mean I'm overqualified to reset your printer password? Probably. But when the thing that goes wrong isn't a printer — when it's a ransomware attack at 3am on a Tuesday, or a phishing email that's just convincing enough to fool your best employee — you'll want someone who's seen it before. Someone who doesn't panic because they've worked incidents worse than yours.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              That's the trade-off. You get the person who resets your password AND the person who's investigated real cyber crime. Same monthly fee.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. How I work -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            My approach (it's not complicated)
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            Technology should work for you. When it doesn't, you shouldn't have to figure it out alone. That's genuinely it. That's the whole philosophy.
+          </p>
+          <p class="mt-4 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            But let me be specific about what that looks like day to day, because "good IT support" means different things to different people.
+          </p>
+        </div>
+
+        <div class="mt-14 grid md:grid-cols-2 gap-0">
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-10 fade-up stagger-2">
+            <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">You call, I answer.</h3>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Not a call centre. Not a ticketing system that sends you an automated reply saying "we'll get back to you within 48 hours." Me. Or someone on my team who knows your setup and your name. Michele Smith called about a problem and "within hours he had set up a Zoom meeting and talked me through everything." That's the standard, not the exception.
+            </p>
+          </article>
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-10 fade-up stagger-3">
+            <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Plain English. Always.</h3>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              I don't say "endpoint protection" when I mean antivirus. I don't say "business continuity" when I mean backups. If I can't explain what I'm doing in words you'd use at the pub, I haven't explained it well enough. Your IT shouldn't feel like a foreign language.
+            </p>
+          </article>
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-10 fade-up stagger-4">
+            <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">Prevention, not firefighting.</h3>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              This is the forensic computing background talking. I'd rather spend 20 minutes checking your systems on a quiet Wednesday than 6 hours rebuilding them on an emergency Friday. Most of what I do, you'll never notice. That's the point.
+            </p>
+          </article>
+          <article class="bg-card-surface border border-border-subtle p-8 lg:p-10 fade-up stagger-5">
+            <h3 class="text-[18px] uppercase tracking-[-0.02em] font-normal text-text-primary mb-4">No lock-in.</h3>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              30 days' notice. That's it. Catherine Collar switched to me from another provider and called the onboarding "faultless, smooth and efficient." If I'm not doing a good job, you should be able to leave. The fact that my clients don't? That tells you more than any sales pitch.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. The team -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              It's not just me (but it starts with me)
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              I won't pretend Kevs IT is a one-man operation. It isn't. I've got a small team around me, and they're brilliant at what they do.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              But here's what makes us different from every other IT company in Bristol: you'll always know who's looking after you. This isn't a faceless helpdesk where your ticket gets assigned to whoever's free. When you become a Kevs IT client, you're working with people who know your systems, your quirks, and that thing your office printer does every third Tuesday. (Every printer has a thing. Don't worry about it.)
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              We serve Bristol businesses with 1 to 50 people. Sole traders who need someone to call when the laptop dies. Teams of 15 who need their whole setup managed. Growing companies who've outgrown "my nephew's good with computers" and need proper support without the corporate overhead.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              What we don't do: chase enterprise contracts with 500 seats and a 12-month procurement process. That's not the work I started this business to do. I'd rather know 50 clients by name than service 500 by ticket number.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Credentials -->
+    <SocialProof
+      eyebrow="The proof"
+      heading="The proof (because words are cheap)"
+      credentials={[
+        { type: 'award', label: 'Bristol Business Award 2024' },
+        { type: 'award', label: 'Global Business Awards 2024' },
+        { type: 'award', label: 'Global Business Awards 2022' },
+        { type: 'award', label: 'UK Enterprise Awards 2021' },
+        { type: 'certification', label: 'CyberFirst Supported' },
+        { type: 'partnership', label: 'Acronis Partner' },
+        { type: 'education', label: 'UWE Bristol — Forensic Computing' },
+      ]}
+      postCredentialsText="Four awards in four years. These aren't the kind you pay to enter and automatically 'win.' They're judged by independent panels looking at real client outcomes and real business performance."
+      primaryCta={{ label: 'Book a meeting', href: '/contact' }}
+      secondaryCta={{ label: 'See our services', href: '/services' }}
+    />
+
+    <!-- 7. CTA -->
+    <CTA
+      heading="Want to see if we're the right fit?"
+      bodyParagraphs={[
+        "Book a 30-minute chat. I'll ask about your setup, your frustrations, and what \"good IT\" would look like for your business. You'll know within 10 minutes whether we're the right fit.",
+        "And if we're not the right fit? I'll tell you. Honestly. I've sent people to other providers before when they needed something I don't offer. I'd rather do that than take your money and do a bad job. (Turns out being honest about this stuff actually works. Who knew.)",
+      ]}
+      primaryCta={{ label: 'Book a free meeting', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

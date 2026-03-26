@@ -1,0 +1,211 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import Stats from '../components/sections/Stats.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base
+  title="PSTN Switch-Off & Business Telecoms | Kevs IT Bristol"
+  description="The UK's traditional phone network switches off January 2027. 82% of small businesses aren't ready. Kevin helps Bristol businesses prepare, migrate, and get better telecoms in the process."
+>
+  <Navbar currentPage="/telecoms" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="January 2027. Your phone lines are switching off."
+      subHeadline="BT is shutting down the UK's traditional phone network permanently. Every analogue phone line, every fax machine, every bit of broadband that runs through a phone socket — gone. 82% of small businesses aren't ready. You've got 10 months to sort it. Kevin can help."
+      primaryCta={{ label: 'Book a free telecoms review', href: '/contact' }}
+      secondaryCta={{ label: "What's actually happening?", href: '#whats-happening' }}
+    />
+
+    <!-- 2. What's actually happening -->
+    <section class="relative py-20 lg:py-28" id="whats-happening">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              The PSTN switch-off in plain English.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              PSTN stands for Public Switched Telephone Network. It's the copper phone line infrastructure that's connected British businesses and homes since the 1800s. BT has confirmed it's switching the whole thing off in January 2027. Not upgrading it. Switching it off.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              If your business uses any of these, you're affected:
+            </p>
+            <ul class="space-y-3">
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                A landline phone that plugs into a wall socket
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                A fax machine (yes, 7% of UK businesses still use them daily)
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                Broadband delivered through a phone line (ADSL)
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                A card payment terminal that dials out through a phone connection
+              </li>
+              <li class="text-[14px] text-text-secondary leading-[1.6] pl-4 border-l-2 border-cyan/30">
+                An alarm system, lift emergency phone, or CCTV that uses a phone line to report
+              </li>
+            </ul>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              This isn't a rumour or a maybe. Openreach (the company that maintains the physical network) has already stopped taking new PSTN orders as of September 2023. The switch-off has been rolling through exchanges across the country since 2025. Come January 2027, the network goes dark.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Hidden dependencies -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              It's not just your phones.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Most business owners hear "phone line switch-off" and think about their desk phones. Fair enough. But the PSTN runs deeper than that.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              The thing that catches people out? Their broadband. If your internet comes through a phone line (ADSL), that connection dies with the PSTN. You'll need to move to full fibre or a dedicated business connection. If you haven't checked, now's the time — because the January 2027 deadline doesn't come with a grace period.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Then there's the invisible stuff. The alarm system that calls the monitoring centre when someone breaks in at 3am. The lift emergency phone that connects to a response team. The card machine in the corner of the shop that dials out to process payments. All of these rely on PSTN infrastructure, and all of them will stop working.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              A Bristol retail business Kevin spoke to last month had no idea their fire alarm reporting ran through a PSTN line. They'd been told by their alarm company "everything's fine." It wasn't. That's the kind of gap that doesn't show up until the line goes dead.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Stats -->
+    <Stats
+      eyebrow="The numbers"
+      heading="Worse than you'd expect."
+      bodyParagraphs={[
+        "The uncomfortable truth? Most businesses have heard about the switch-off. They just haven't done anything about it yet. It sounds like a telecoms problem, so it goes on the \"someone else will sort that\" pile. But \"someone else\" isn't sorting it. And January 2027 isn't moving.",
+        "If you're not sure whether your business is affected, you almost certainly are. Over 80% of UK SMBs still have at least one service running on the old copper network. That's not a scare statistic. It's an Ofcom finding from their 2024 Connected Nations report.",
+      ]}
+      stats={[
+        { value: 82, suffix: '%', finalText: '82%', label: "Of UK small businesses haven't started preparing for the PSTN switch-off" },
+        { value: 2, suffix: 'M+', finalText: '2M+', label: 'Business phone lines still on the old network' },
+        { value: 7, suffix: '%', finalText: '7%', label: 'Of UK businesses still use fax machines daily — all need migrating' },
+        { value: 2027, finalText: 'Jan 2027', label: "The deadline. It's not moving." },
+      ]}
+    />
+
+    <!-- 5. Kevin's process -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            Getting you sorted before the deadline.
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            Kevin's approach is three steps. He audits what you've got, tells you what needs to change, and handles the migration. No jargon-heavy proposals. No "digital transformation" waffle. Just a clear plan.
+          </p>
+        </div>
+
+        <div class="mt-14 space-y-0">
+          {[
+            {
+              step: '01',
+              title: 'Telecoms audit',
+              desc: "Kevin reviews every phone line, broadband connection, and PSTN-dependent device in your business. The alarm system, the card machine, the fax nobody uses but nobody's cancelled — all of it. He'll tell you exactly what's affected and what isn't.",
+            },
+            {
+              step: '02',
+              title: 'Migration plan',
+              desc: "Based on the audit, Kevin recommends the right replacement for each service. Your desk phones move to VoIP (internet-based calling — same phone number, better features, usually cheaper). Your broadband moves to full fibre or a dedicated leased line. Your alarm and security systems get updated to IP-based reporting.",
+            },
+            {
+              step: '03',
+              title: 'Managed switchover',
+              desc: "Kevin handles the migration. He coordinates with Openreach, your alarm company, your broadband provider — whoever needs to be involved. You don't chase three different suppliers trying to align installation dates. Kevin does.",
+            },
+          ].map((item, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 lg:p-10 grid md:grid-cols-[80px_1fr] gap-6 fade-up stagger-${i + 2}`}>
+              <span class="text-[48px] text-cyan/30 font-normal leading-[1]">{item.step}</span>
+              <div>
+                <h3 class="text-[14px] uppercase tracking-normal text-text-primary mb-2">{item.title}</h3>
+                <p class="text-[14px] text-text-secondary leading-[1.6]">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-8 text-[14px] text-text-secondary leading-[1.6] max-w-2xl fade-up">
+          The goal is for your business to wake up one morning on new telecoms infrastructure and barely notice the difference. Except the phone bill's usually lower. Kevin's already migrated businesses across Bristol — the ones who left it late were fine, but the ones who started early had more options and better deals on fibre installation.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Beyond the switch-off -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            Telecoms that actually work for your business.
+          </h2>
+          <p class="mt-6 text-[14px] text-text-secondary leading-[1.6] max-w-2xl">
+            The PSTN deadline is the catalyst, but Kevin's telecoms service doesn't end in January 2027. Once you're migrated, you've got a modern communications setup — and that opens up options your old phone lines never offered.
+          </p>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-0">
+          {[
+            {
+              icon: 'smartphone',
+              title: 'VoIP phone systems',
+              desc: "Cloud-based phone systems that work from anywhere. Your office number rings on your mobile when you're out. Calls transfer between team members without putting anyone on hold for 4 minutes. Voicemails arrive as emails. And the whole thing costs less than your current BT line rental — typically £8–15 per user per month versus £25+ for a traditional line.",
+            },
+            {
+              icon: 'wifi',
+              title: 'Business broadband',
+              desc: "Not all broadband is equal. Kevin sources business-grade connections with guaranteed speeds and priority fault repair (typically 6-hour fix vs 3-day residential response). If your current broadband drops out every time it rains — and you'd be surprised how often that's literally the cause — there are better options.",
+            },
+            {
+              icon: 'tech-support',
+              title: 'Ongoing telecoms support',
+              desc: "Your phone system is part of your IT infrastructure now. That's how the modern world works. Kevin manages it alongside your IT support, so when something goes wrong with your phones, you call the same person you'd call about your laptop. One number. One relationship. Sorted.",
+            },
+          ].map((card, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 fade-up stagger-${i + 2}`}>
+              <div class="mb-5">
+                <Icon name={card.icon} class="w-20 h-20" gradient />
+              </div>
+              <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">{card.title}</h3>
+              <p class="text-[14px] text-text-secondary leading-[1.6]">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <CTA
+      heading="The businesses that start early get better deals."
+      bodyParagraphs={[
+        "Book a 30-minute telecoms review with Kevin. He'll assess what you've got, tell you what's affected by the switch-off, and give you a clear plan. No commitment. No hard sell. Just honest advice from someone who's already migrated businesses across Bristol and knows where the hidden dependencies are (it's almost always the alarm system).",
+        "If you're not sure whether you're affected, the quickest way to find out is a conversation. And if it turns out you're already sorted? Kevin will tell you that too.",
+      ]}
+      primaryCta={{ label: 'Book a free telecoms review', href: '/contact' }}
+      secondaryCta={{ label: 'Or call Kevin', href: 'tel:+441170000000' }}
+    />
+  </main>
+
+  <Footer />
+</Base>

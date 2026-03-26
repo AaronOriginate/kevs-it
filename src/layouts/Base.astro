@@ -43,10 +43,9 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.png`;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
 
-    <!-- Google Fonts: Cousine (matching Sentrisec) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- Font preloads — critical rendering path -->
+    <link rel="preload" href={`${base}/fonts/geist/Geist-Regular.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={`${base}/fonts/cousine/Cousine-Regular.woff2`} as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD: LocalBusiness -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -88,9 +87,8 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.png`;
       @font-face { font-family: 'Geist'; src: url('${base}/fonts/geist/Geist-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
       @font-face { font-family: 'Geist'; src: url('${base}/fonts/geist/Geist-Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
       @font-face { font-family: 'Geist'; src: url('${base}/fonts/geist/Geist-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
-      @font-face { font-family: 'JetBrains Mono'; src: url('${base}/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
-      @font-face { font-family: 'JetBrains Mono'; src: url('${base}/fonts/jetbrains-mono/JetBrainsMono-Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
-      @font-face { font-family: 'JetBrains Mono'; src: url('${base}/fonts/jetbrains-mono/JetBrainsMono-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+      @font-face { font-family: 'Cousine'; src: url('${base}/fonts/cousine/Cousine-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+      @font-face { font-family: 'Cousine'; src: url('${base}/fonts/cousine/Cousine-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
     `} />
 
     <!-- Global styles -->
@@ -101,9 +99,26 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.png`;
   <body class="min-h-screen bg-page-bg text-text-secondary antialiased">
     <!-- Fixed Bristol background -->
     <div id="bg-wrapper" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
-      <img src={`${base}/images/hero-bg.jpg`} alt="" class="w-full h-full object-cover opacity-[0.45]" />
+      <img src={`${base}/images/hero-bg.webp`} alt="" class="w-full h-full object-cover opacity-[0.45]" loading="eager" fetchpriority="high" width="1920" height="1080" />
       <div id="bg-gradient" class="absolute inset-0" style="background: linear-gradient(to right, rgba(10,10,14,0.5) 0%, rgba(10,10,14,0.3) 50%, rgba(10,10,14,0.1) 100%);"></div>
     </div>
+
+    <!-- Global SVG gradient for icons -->
+    <svg width="0" height="0" class="absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF">
+            <animate attributeName="stop-color" values="#FFFFFF;#8AEDFF;#FFFFFF" dur="6s" repeatCount="indefinite"/>
+          </stop>
+          <stop offset="50%" stop-color="#8AEDFF">
+            <animate attributeName="stop-color" values="#8AEDFF;#FFFFFF;#8AEDFF" dur="6s" repeatCount="indefinite"/>
+          </stop>
+          <stop offset="100%" stop-color="#FFFFFF">
+            <animate attributeName="stop-color" values="#FFFFFF;#8AEDFF;#FFFFFF" dur="6s" begin="0.5s" repeatCount="indefinite"/>
+          </stop>
+        </linearGradient>
+      </defs>
+    </svg>
 
     <div class="relative z-10">
       <slot />

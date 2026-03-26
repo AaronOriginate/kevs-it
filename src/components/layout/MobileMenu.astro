@@ -1,0 +1,133 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = '/' } = Astro.props;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Reviews', href: '/reviews' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const serviceChildren = [
+  { label: 'TechShield Pro', href: '/techshield-pro' },
+  { label: 'Cyber Essentials', href: '/cyber-essentials' },
+  { label: 'Cipher Academy', href: '/cipher-academy' },
+  { label: 'Telecoms', href: '/telecoms' },
+  { label: 'Hardware & Repairs', href: '/shop' },
+];
+---
+
+<!-- Hamburger button -->
+<button
+  id="mobile-menu-toggle"
+  class="lg:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+  aria-label="Open menu"
+  aria-expanded="false"
+>
+  <span class="hamburger-line block h-0.5 w-6 bg-text-primary transition-all duration-300"></span>
+  <span class="hamburger-line block h-0.5 w-6 bg-text-primary transition-all duration-300"></span>
+  <span class="hamburger-line block h-0.5 w-6 bg-text-primary transition-all duration-300"></span>
+</button>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <nav class="flex flex-col items-center justify-center h-full gap-6">
+    {navLinks.map((link) =>
+      link.label === 'Services' ? (
+        <div class="flex flex-col items-center">
+          <a
+            href={link.href}
+            class="mobile-menu-link text-[24px] uppercase tracking-normal text-text-primary hover:text-cyan transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+          <div class="flex flex-col items-center gap-3 mt-3">
+            {serviceChildren.map((child) => (
+              <a
+                href={child.href}
+                class={`mobile-menu-link text-[15px] uppercase tracking-normal transition-colors duration-200 ${
+                  currentPage === child.href
+                    ? 'text-cyan'
+                    : 'text-text-muted hover:text-cyan'
+                }`}
+              >
+                {child.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a
+          href={link.href}
+          class="mobile-menu-link text-[24px] uppercase tracking-normal text-text-primary hover:text-cyan transition-colors duration-200"
+        >
+          {link.label}
+        </a>
+      )
+    )}
+    <a
+      href="/contact"
+      class="mobile-menu-link mt-4 inline-flex items-center justify-center px-8 py-4 bg-cyan text-black text-[16px] uppercase tracking-normal hover:brightness-110 transition-all duration-200"
+    >
+      Book a Meeting
+    </a>
+  </nav>
+</div>
+
+<script>
+  function initMobileMenu() {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    if (!toggle || !overlay) return;
+
+    const lines = toggle.querySelectorAll('.hamburger-line');
+    let isOpen = false;
+
+    function openMenu() {
+      isOpen = true;
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+      if (lines[0]) { lines[0].style.transform = 'rotate(45deg) translateY(8px)'; }
+      if (lines[1]) { lines[1].style.opacity = '0'; }
+      if (lines[2]) { lines[2].style.transform = 'rotate(-45deg) translateY(-8px)'; }
+    }
+
+    function closeMenu() {
+      isOpen = false;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      overlay.classList.remove('opacity-100');
+      document.body.style.overflow = '';
+      if (lines[0]) { lines[0].style.transform = ''; }
+      if (lines[1]) { lines[1].style.opacity = ''; }
+      if (lines[2]) { lines[2].style.transform = ''; }
+    }
+
+    toggle.addEventListener('click', () => {
+      if (isOpen) closeMenu(); else openMenu();
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeMenu();
+    });
+
+    overlay.querySelectorAll('.mobile-menu-link').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+  document.addEventListener('astro:page-load', initMobileMenu);
+</script>

@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/layout/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base
+  title="Cipher Academy — Cybersecurity Training for Teams | Kevs IT Bristol"
+  description="Cybersecurity training your whole team can actually understand. Built by a forensic computing expert. Phishing awareness, password hygiene, and more. Visit cipher-academy.co.uk."
+>
+  <Navbar currentPage="/cipher-academy" />
+
+  <main>
+    <!-- 1. Hero -->
+    <PageHero
+      headline="The best firewall in the world can't stop someone clicking a bad link."
+      subHeadline="Most successful cyber attacks start with a human being doing something they shouldn't. Not a sophisticated hack. Not a zero-day exploit. Just someone in accounts opening an email that looked like it came from DHL. Cipher Academy is Kevin's cybersecurity training platform — built to turn your team from your biggest vulnerability into your first line of defence."
+      primaryCta={{ label: 'Visit Cipher Academy', href: 'https://cipher-academy.co.uk' }}
+      secondaryCta={{ label: 'Talk to Kevin about training', href: '/contact' }}
+    />
+
+    <!-- 2. The human problem -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Your people aren't the problem. Their training is.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              A question that'll tell you everything you need to know about your business's cyber security. Walk up to anyone on your team — the office manager, the new apprentice, the person who's been there 15 years — and ask them to name three things they do to keep the company cyber secure.
+            </p>
+            <p class="text-[14px] text-text-primary leading-[1.6]">
+              Can they answer?
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Kevin asks this a lot. And most business owners go quiet, because they already know. Their team can't answer that question. Not because they're careless or lazy. Because nobody ever taught them. Meanwhile, the phishing emails keep getting smarter. That invoice from "your accountant" with the slightly wrong email address. The text message about a missed Royal Mail delivery. The Teams notification that isn't from Teams at all. These attacks don't need your team to be stupid. They just need them to be untrained.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Why this isn't a bolt-on -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Most IT companies tick a box. Kevin built a platform.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              The usual story: your IT provider adds "security awareness training" as a line item on your contract. You get access to some generic videos. Maybe a quarterly email reminder about passwords. Nobody tracks who's watched what. Nobody tests whether it worked. And your team clicks the same dodgy links they always did.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Kevin took a different approach. He built Cipher Academy as a standalone training platform — separate from Kevs IT, with its own curriculum, its own structure, and its own domain. Not because it looked good on a proposal. Because bolt-on training doesn't change behaviour. Dedicated training does.
+            </p>
+            <p class="text-[14px] text-text-primary leading-[1.6]">
+              No other Bristol MSP has done this. Plenty offer "cybersecurity training" as a service. None of them built an entire platform around it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. What your team learns -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="fade-up">
+          <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal max-w-2xl">
+            Practical skills. Not PowerPoint slides.
+          </h2>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 gap-0">
+          {[
+            {
+              title: 'Phishing awareness',
+              icon: 'email-security' as const,
+              desc: "Your team learns to spot the red flags before they click. Real examples, not textbook ones. The email that comes at 4:47pm on a Friday when everyone's tired and rushing to finish — that's the one that gets people. Cipher Academy trains for exactly those moments.",
+            },
+            {
+              title: 'Password hygiene',
+              icon: 'encryption' as const,
+              desc: '"Password123" is still the fourth most common password in the UK. Cipher Academy covers password managers, multi-factor authentication (the text message or app code you use alongside your password), and why reusing your Netflix login for your work email is a genuinely terrible idea.',
+            },
+            {
+              title: 'Social engineering',
+              icon: 'helpdesk' as const,
+              desc: "Not all attacks come through a screen. Some come through a phone call from someone claiming to be \"the IT department.\" Your team learns how manipulation works — and how to spot it when someone's trying it on them.",
+            },
+            {
+              title: 'Incident response',
+              icon: 'shield-check' as const,
+              desc: "What do you do when something goes wrong? Not panic — that's step zero. Cipher Academy covers who to call, what to document, and how to contain a breach before it spreads. The 43 minutes between a breach starting and someone reporting it is where the real damage happens.",
+            },
+          ].map((card, i) => (
+            <div class={`bg-card-surface border border-border-subtle p-8 fade-up stagger-${i + 2}`}>
+              <div class="mb-5">
+                <Icon name={card.icon} class="w-20 h-20" gradient />
+              </div>
+              <h3 class="text-[14px] uppercase tracking-normal text-cyan mb-3">{card.title}</h3>
+              <p class="text-[14px] text-text-secondary leading-[1.6]">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Kevin's background -->
+    <section class="relative py-20 lg:py-28">
+      <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="fade-up">
+            <h2 class="text-[clamp(1.5rem,3vw,48px)] leading-[1.05] tracking-[-0.02em] font-normal">
+              Built by someone who's investigated the aftermath.
+            </h2>
+          </div>
+          <div class="space-y-6 fade-up stagger-2">
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              Kevin studied forensic computing at UWE Bristol. The kind where you pull apart hard drives and trace how a breach happened. Where you reconstruct timelines of attacks, figure out what went wrong, and write reports that end up in legal proceedings.
+            </p>
+            <p class="text-[14px] text-text-secondary leading-[1.6]">
+              That background matters for one very specific reason. Kevin doesn't teach cybersecurity theory. He's seen what actually happens when a business gets breached — the financial cost, the operational chaos, the look on a business owner's face when they realise their client data's been compromised. He built Cipher Academy because he kept seeing the same preventable mistakes. And he got tired of investigating them after the fact.
+            </p>
+            <blockquote class="border-l-2 border-cyan pl-6 mt-8">
+              <p class="text-[16px] text-text-primary italic">"Anyone in your business should be able to give you three ways they can keep the company cyber secure. If they can't, that's a training problem."</p>
+              <footer class="mt-2 text-[13px] text-text-muted">&mdash; Kevin Rice, Kevs IT</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <CTA
+      heading="Train your team before someone else tests them."
+      bodyParagraphs={[
+        "Cipher Academy runs through cipher-academy.co.uk — Kevin's dedicated training platform. You'll find course details, formats, and booking options there. It's separate from Kevs IT because training deserves more than a footnote on an IT support page.",
+        "Want to talk through what your team needs first? Book a 30-minute meeting with Kevin. He'll assess where the gaps are (there are always gaps — even in businesses that think they're covered) and recommend the right training path. No sales pitch. Just an honest conversation about whether your people could spot a phishing email at 4:47pm on a Friday.",
+      ]}
+      primaryCta={{ label: 'Book a meeting with Kevin', href: '/contact' }}
+      secondaryCta={{ label: 'Visit Cipher Academy', href: 'https://cipher-academy.co.uk' }}
+    />
+  </main>
+
+  <Footer />
+</Base>
